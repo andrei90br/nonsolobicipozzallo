@@ -20,7 +20,9 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <script>document.documentElement.classList.add('js');</script>
-  <link rel="stylesheet" href="css/style.css">
+  <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=2" fetchpriority="high">
 
   <script type="application/ld+json">
   {
@@ -109,7 +111,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg" width="1278" height="720" fetchpriority="high" decoding="async"
+  <img class="hero-bg" src="assets/hero.jpg?v=2" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -331,7 +333,7 @@
 
     <div class="reveal">
       <p class="kicker">Noleggio</p>
-      <h2>Lasciaci l'auto, prendi la <em>bici.</em></h2>
+      <h2>Prendi una bici, vai <em>dove vuoi.</em></h2>
       <p style="margin-top:18px;color:var(--muted-on-dark);font-size:1.12rem">In vacanza a Pozzallo, di passaggio o semplicemente senza bici: noleggia una bicicletta o una e-bike e scopri il lungomare e i dintorni al tuo ritmo.</p>
 
       <div class="rent-types">
@@ -490,6 +492,6 @@
   <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=36.7336496,14.8522478" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Indicazioni</a>
 </nav>
 
-<script src="js/main.js"></script>
+<script src="js/main.js?v=2"></script>
 </body>
 </html>

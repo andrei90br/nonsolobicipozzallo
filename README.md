@@ -22,6 +22,10 @@ Il deploy è automatico con GitHub Pages: ogni push su `sito-nuovo` o `main` ese
 da *Actions → Deploy su GitHub Pages → Run workflow*. Le regole dell'ambiente `github-pages` consentono solo i branch
 `main` e `sito-nuovo`: per pubblicare da un altro branch va aggiunto in *Settings → Environments → github-pages*.
 
+**Cache:** GitHub Pages fa tenere i file in cache al browser per 10 minuti. Per questo gli indirizzi di CSS, JS e foto
+in `index.html` e `privacy.html` hanno un numero di versione (`style.css?v=2`): quando modifichi uno di questi file,
+aumenta il numero (`?v=3`…) in tutte le pagine, così pagina e stile arrivano sempre insieme.
+
 Per usare un dominio proprio: *Settings → Pages → Custom domain*. In alternativa basta caricare **il contenuto di `site/`**
 su qualsiasi hosting statico (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
