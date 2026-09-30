@@ -115,18 +115,27 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative; overflow: hidden; isolation: isolate;
+  display: flex; align-items: center; min-height: min(92vh, 860px);
   background: var(--ink); color: #fff;
-  padding: clamp(36px, 7vw, 84px) 0 clamp(56px, 8vw, 110px);
+  padding: clamp(40px, 7vw, 84px) 0 clamp(64px, 8vw, 110px);
 }
-.hero::before { /* bagliore rosso dietro la bici */
-  content: ""; position: absolute; z-index: -2; right: -10%; top: 6%; width: 70vmax; height: 70vmax; max-width: 900px; max-height: 900px;
-  background: radial-gradient(closest-side, rgba(215, 25, 31, .55), rgba(215, 25, 31, 0) 70%);
+.hero-bg { /* foto della vetrina */
+  position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%;
+  object-fit: cover; object-position: 68% 62%;
 }
-.hero::after { /* strisce diagonali */
-  content: ""; position: absolute; z-index: -1; inset: 0;
-  background: repeating-linear-gradient(112deg, transparent 0 46px, rgba(255, 255, 255, .035) 46px 48px);
-  mask-image: linear-gradient(180deg, #000 30%, transparent);
-  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent);
+.hero::before { /* velo scuro: sinistra più coperta per far leggere il testo, basso per il passaggio alla striscia */
+  content: ""; position: absolute; inset: 0; z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(14, 14, 15, .93) 0%, rgba(14, 14, 15, .8) 34%, rgba(14, 14, 15, .34) 66%, rgba(14, 14, 15, .1) 100%),
+    linear-gradient(0deg, rgba(14, 14, 15, .85) 0%, rgba(14, 14, 15, 0) 36%);
+}
+.hero::after { /* alone rosso nell'angolo in basso a sinistra */
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 70% at 0% 100%, rgba(215, 25, 31, .34), transparent 70%);
+}
+@media (max-width: 899px) {
+  .hero::before { background: linear-gradient(180deg, rgba(14, 14, 15, .86) 0%, rgba(14, 14, 15, .72) 45%, rgba(14, 14, 15, .58) 100%); }
+  .hero-bg { object-position: 50% 50%; }
 }
 .hero-grid { display: grid; gap: clamp(20px, 4vw, 48px); align-items: center; }
 @media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr 1fr; } }
@@ -151,25 +160,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .hero-tags li { display: inline-flex; align-items: center; gap: .5em; padding: 8px 14px; border: 1px solid var(--line-dark); border-radius: 999px; font-size: .92rem; color: #d8d4cb; background: rgba(255, 255, 255, .04); }
 .hero-tags .ico { color: var(--red-hi); width: 1.15em; height: 1.15em; }
 
-.hero-art { position: relative; }
-.hero-bike { width: 100%; height: auto; display: block; overflow: visible; }
-.hero-bike .tyre { fill: none; stroke: #f5f2ec; stroke-width: 9; }
-.hero-bike .tread { fill: none; stroke: var(--ink); stroke-width: 9; stroke-dasharray: 3 11.9; }
-.hero-bike .rim { fill: none; stroke: #8d8a83; stroke-width: 3; }
-.hero-bike .spokes line { stroke: #8d8a83; stroke-width: 1.4; }
-.hero-bike .hub { fill: var(--ink); stroke: #f5f2ec; stroke-width: 4; }
-.hero-bike .tube { fill: none; stroke: var(--red); stroke-linecap: round; stroke-linejoin: round; }
-.hero-bike .part { fill: none; stroke: #f5f2ec; stroke-linecap: round; stroke-linejoin: round; }
-.hero-bike .chain { fill: none; stroke: #8d8a83; stroke-width: 2.5; }
-.hero-bike .speed { stroke: rgba(255, 255, 255, .35); stroke-width: 3; stroke-linecap: round; }
-.hero-bike .shadow { fill: rgba(0, 0, 0, .45); }
+.hero-art { display: none; }
+@media (min-width: 900px) { .hero-art { display: flex; justify-content: flex-end; align-self: end; } }
 .spin { transform-box: fill-box; transform-origin: center; animation: spin 9s linear infinite; }
-.spin-crank { transform-box: fill-box; transform-origin: center; animation: spin 9s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.bike-rock { animation: rock 5s ease-in-out infinite alternate; transform-origin: 50% 90%; transform-box: fill-box; }
-@keyframes rock { from { transform: translateY(0); } to { transform: translateY(-5px); } }
 .hero-badge {
-  position: absolute; right: 0; top: 0; width: clamp(84px, 12vw, 116px); aspect-ratio: 1; border-radius: 50%;
+  width: clamp(92px, 12vw, 124px); aspect-ratio: 1; border-radius: 50%;
   display: grid; place-items: center; text-align: center; padding: 10px;
   background: var(--red); color: #fff; transform: rotate(10deg);
   font-family: var(--display); font-variation-settings: "wdth" 78; text-transform: uppercase; font-weight: 700; line-height: .9; font-size: clamp(1.05rem, 2.6vw, 1.45rem);

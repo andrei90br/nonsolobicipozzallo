@@ -12,6 +12,12 @@
   <meta property="og:locale" content="it_IT">
   <meta property="og:title" content="Non Solo Bici Pozzallo — Vendita, riparazioni e noleggio bici">
   <meta property="og:description" content="Bici nuove e usate, e-bike, officina riparazioni e noleggio a Pozzallo. Viale Europa snc.">
+  <!-- Se il sito cambia indirizzo (dominio proprio), aggiornare l'URL assoluto dell'immagine -->
+  <meta property="og:image" content="https://andrei90br.github.io/nonsolobicipozzallo/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
+  <meta name="twitter:card" content="summary_large_image">
 
   <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="css/style.css">
@@ -21,6 +27,7 @@
     "@context": "https://schema.org",
     "@type": "BicycleStore",
     "name": "Non Solo Bici",
+    "image": "https://andrei90br.github.io/nonsolobicipozzallo/assets/hero.jpg",
     "description": "Vendita biciclette nuove e usate, e-bike, accessori e ricambi, officina riparazioni, noleggio biciclette ed e-bike a Pozzallo.",
     "telephone": ["+393318380840", "+390932797162"],
     "address": {
@@ -102,6 +109,8 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
+  <img class="hero-bg" src="assets/hero.jpg" width="1278" height="720" fetchpriority="high" decoding="async"
+       alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Pozzallo · Viale Europa</p>
@@ -127,60 +136,6 @@
 
     <div class="hero-art" aria-hidden="true">
       <div class="hero-badge"><span>Pozzallo<small>Viale Europa</small></span></div>
-      <svg class="hero-bike" viewBox="0 -90 640 490" focusable="false">
-        <ellipse class="shadow" cx="320" cy="362" rx="290" ry="9"/>
-        <path class="speed" d="M0 190h54M14 232h42M0 280h50"/>
-        <g class="bike-rock">
-          <!-- ruota posteriore -->
-          <g transform="translate(150 265)">
-            <g class="spin">
-              <circle class="tyre" r="92"/>
-              <circle class="tread" r="92"/>
-              <circle class="rim" r="82"/>
-              <g class="spokes">
-                <line x1="-82" x2="82"/><line x1="-82" x2="82" transform="rotate(15)"/><line x1="-82" x2="82" transform="rotate(30)"/><line x1="-82" x2="82" transform="rotate(45)"/><line x1="-82" x2="82" transform="rotate(60)"/><line x1="-82" x2="82" transform="rotate(75)"/><line x1="-82" x2="82" transform="rotate(90)"/><line x1="-82" x2="82" transform="rotate(105)"/><line x1="-82" x2="82" transform="rotate(120)"/><line x1="-82" x2="82" transform="rotate(135)"/><line x1="-82" x2="82" transform="rotate(150)"/><line x1="-82" x2="82" transform="rotate(165)"/>
-              </g>
-            </g>
-            <circle class="hub" r="9"/>
-          </g>
-          <!-- ruota anteriore -->
-          <g transform="translate(490 265)">
-            <g class="spin">
-              <circle class="tyre" r="92"/>
-              <circle class="tread" r="92"/>
-              <circle class="rim" r="82"/>
-              <g class="spokes">
-                <line x1="-82" x2="82"/><line x1="-82" x2="82" transform="rotate(15)"/><line x1="-82" x2="82" transform="rotate(30)"/><line x1="-82" x2="82" transform="rotate(45)"/><line x1="-82" x2="82" transform="rotate(60)"/><line x1="-82" x2="82" transform="rotate(75)"/><line x1="-82" x2="82" transform="rotate(90)"/><line x1="-82" x2="82" transform="rotate(105)"/><line x1="-82" x2="82" transform="rotate(120)"/><line x1="-82" x2="82" transform="rotate(135)"/><line x1="-82" x2="82" transform="rotate(150)"/><line x1="-82" x2="82" transform="rotate(165)"/>
-              </g>
-            </g>
-            <circle class="hub" r="9"/>
-          </g>
-          <!-- catena -->
-          <path class="chain" d="M298 241 152 252M298 293 152 278"/>
-          <circle class="part" cx="150" cy="265" r="13" stroke-width="3"/>
-          <!-- telaio -->
-          <path class="tube" stroke-width="8" d="M150 265 298 267"/>
-          <path class="tube" stroke-width="7" d="M150 265 266 150"/>
-          <path class="tube" stroke-width="9" d="M298 267 264 136"/>
-          <path class="tube" stroke-width="9" d="M264 146 434 142"/>
-          <path class="tube" stroke-width="12" d="M298 267 448 174"/>
-          <path class="tube" stroke-width="13" d="M432 130 450 180"/>
-          <path class="tube" stroke-width="8" d="M450 180 490 265"/>
-          <!-- sella, manubrio -->
-          <path class="part" stroke-width="6" d="M264 136 256 106"/>
-          <path class="part" stroke-width="12" d="M224 102Q252 94 292 104"/>
-          <path class="part" stroke-width="7" d="M432 130 436 104"/>
-          <path class="part" stroke-width="6" d="M422 103H452c16 0 24 12 18 28"/>
-          <!-- pedivelle -->
-          <g class="spin-crank" style="transform-box:view-box;transform-origin:298px 267px">
-            <circle class="part" cx="298" cy="267" r="27" stroke-width="4"/>
-            <path class="part" stroke-width="6" d="M298 267 316 308M298 267 280 226"/>
-            <circle cx="317" cy="310" r="7" fill="#f5f2ec"/>
-            <circle cx="279" cy="224" r="7" fill="#f5f2ec"/>
-          </g>
-          <circle cx="298" cy="267" r="8" fill="#0e0e0f" stroke="#f5f2ec" stroke-width="4"/>
-        </g>
-      </svg>
     </div>
   </div>
 </section>

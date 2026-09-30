@@ -34,6 +34,8 @@ site/
   css/style.css     stile (palette rosso/nero/carta dal logo)
   js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
   assets/favicon.svg
+  assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720)
+  assets/og.jpg     stessa foto ritagliata 1200×630 per le anteprime social (WhatsApp, Facebook)
 serve.ps1           mini server locale
 ```
 
@@ -44,8 +46,8 @@ serve.ps1           mini server locale
 | **Orari di apertura** | `index.html`, sezione Contatti | Non pubblici su Facebook/Instagram: al momento il sito invita a chiamare. |
 | **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
-| **Foto reali** del negozio e dei prodotti | — | Non sono state copiate dai social (diritti d'autore): il sito usa illustrazioni SVG. Aggiungile in `site/assets/` e inseriscile dove preferisci. |
-| **Dominio e `og:image`** | `<head>` di `index.html` | Quando c'è il dominio, aggiungi `canonical`, `og:url` e un'immagine 1200×630 per le anteprime social. |
+| **Altre foto** del negozio e dei prodotti | sezioni Vendita, Chi siamo | Per ora c'è solo la foto della vetrina nell'hero (`assets/hero.jpg`); il resto usa icone e illustrazioni SVG. Non sono state copiate foto dai social (diritti d'autore). |
+| **Dominio** | `<head>` di `index.html` | Quando c'è il dominio proprio, aggiorna l'URL assoluto di `og:image` (e in `image` del JSON-LD) e aggiungi `canonical` e `og:url`. |
 | **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
 
