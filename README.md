@@ -15,8 +15,15 @@ Poi apri <http://localhost:5174/>. (In Claude Code è già configurato come `non
 
 ## Pubblicazione
 
-Basta caricare **il contenuto della cartella `site/`** su qualsiasi hosting statico (Netlify, Cloudflare Pages,
-GitHub Pages, hosting tradizionale via FTP…). Non serve nessun build.
+**Sito online:** <https://andrei90br.github.io/nonsolobicipozzallo/>
+
+Il deploy è automatico con GitHub Pages: ogni push su `sito-nuovo` o `main` esegue il workflow
+[`pages.yml`](.github/workflows/pages.yml), che pubblica la cartella `site/` (nessun build). Si può lanciare anche a mano
+da *Actions → Deploy su GitHub Pages → Run workflow*. Le regole dell'ambiente `github-pages` consentono solo i branch
+`main` e `sito-nuovo`: per pubblicare da un altro branch va aggiunto in *Settings → Environments → github-pages*.
+
+Per usare un dominio proprio: *Settings → Pages → Custom domain*. In alternativa basta caricare **il contenuto di `site/`**
+su qualsiasi hosting statico (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
 ## Struttura
 
