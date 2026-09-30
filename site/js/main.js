@@ -23,12 +23,37 @@
   var nav = $('#nav');
   function setMenu(open) {
     nav.classList.toggle('open', open);
+    document.documentElement.classList.toggle('menu-open', open);   // blocca lo scroll della pagina sotto il menu
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
   }
   burger.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
   $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+  window.addEventListener('resize', function () { if (window.innerWidth >= 1040) setMenu(false); });
+
+  // --- Barra azioni (Chiama / WhatsApp / Indicazioni) su smartphone -----------
+  // Compare quando i pulsanti dell'hero sono usciti dallo schermo; si nasconde mentre si scrive (tastiera aperta).
+  var dock = $('.dock');
+  var heroCta = $('.hero-cta');
+  if (dock && heroCta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      var en = entries[0];
+      dock.classList.toggle('show', !en.isIntersecting && en.boundingClientRect.top < 0);
+    }).observe(heroCta);
+  } else if (dock) {
+    dock.classList.add('show');
+  }
+  var isField = function (el) { return el && /^(INPUT|SELECT|TEXTAREA)$/.test(el.tagName); };
+  document.addEventListener('focusin', function (e) { if (isField(e.target)) document.documentElement.classList.add('typing'); });
+  document.addEventListener('focusout', function (e) { if (isField(e.target)) document.documentElement.classList.remove('typing'); });
+
+  // Apre WhatsApp: nuova scheda; se il browser (es. quello interno di Facebook/Instagram) la blocca, nella stessa scheda.
+  function openWhatsApp(text) {
+    var url = waUrl(text);
+    var w = window.open(url, '_blank');
+    if (w) { try { w.opener = null; } catch (err) { /* ignora */ } } else { window.location.href = url; }
+  }
 
   // --- Moduli -> WhatsApp ---------------------------------------------------
   function markInvalid(field, bad) {
@@ -63,7 +88,7 @@
       'Problema: ' + f.msg.value.trim()
     ];
     if (f.tel.value.trim()) lines.push('Il mio numero: ' + f.tel.value.trim());
-    window.open(waUrl(lines.join('\n')), '_blank', 'noopener');
+    openWhatsApp(lines.join('\n'));
   });
 
   var rent = $('#rent-form');
@@ -81,7 +106,7 @@
       'Durata: ' + f.dur.value + (f.date.value ? ', a partire dal ' + formatDate(f.date.value) : '') + '.',
       'Mi dite disponibilità e tariffa? Grazie!'
     ];
-    window.open(waUrl(lines.join('\n')), '_blank', 'noopener');
+    openWhatsApp(lines.join('\n'));
   });
   $$('input, textarea', document).forEach(function (el) {
     el.addEventListener('input', function () { if (el.getAttribute('aria-invalid') === 'true') markInvalid(el, false); });

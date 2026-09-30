@@ -29,6 +29,18 @@ aumenta il numero (`?v=3`…) in tutte le pagine, così pagina e stile arrivano 
 Per usare un dominio proprio: *Settings → Pages → Custom domain*. In alternativa basta caricare **il contenuto di `site/`**
 su qualsiasi hosting statico (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
+## Ottimizzazione per smartphone
+
+Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/css/style.css`):
+
+- **Hero:** su telefono la foto della vetrina è mostrata intera sopra il titolo (un ritaglio a tutta altezza la ingrandiva e sgranava).
+- **Barra azioni** Chiama / WhatsApp / Indicazioni: compare dopo i pulsanti dell'hero e si nasconde mentre si scrive in un modulo o con il menu aperto.
+- **Menu** a schermo intero con link grandi e pulsanti Chiama / WhatsApp.
+- **Tocco:** tutti i link e i pulsanti sono alti almeno 44 px; le card di Vendita sono tappabili per intero; gli effetti hover sono attivi solo con il mouse.
+- **Pagina più corta:** card compatte (icona a sinistra) per servizi, vendita e noleggio.
+- **WhatsApp:** dai browser interni di Facebook/Instagram, se la nuova scheda è bloccata, si apre nella stessa scheda.
+- Per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
+
 ## Struttura
 
 ```

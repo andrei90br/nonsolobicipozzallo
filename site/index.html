@@ -21,8 +21,8 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=2">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=2" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=3" fetchpriority="high">
 
   <script type="application/ld+json">
   {
@@ -100,6 +100,10 @@
         <li><a href="#chi-siamo">Chi siamo</a></li>
         <li><a href="#contatti">Contatti</a></li>
       </ul>
+      <div class="nav-cta">
+        <a class="btn btn-red" href="tel:+393318380840"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Chiama 331 838 0840</a>
+        <a class="btn btn-wa wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Scrivici su WhatsApp</a>
+      </div>
     </nav>
 
     <a class="btn btn-red btn-sm header-cta" href="tel:+393318380840"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>331 838 0840</a>
@@ -111,7 +115,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=2" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=3" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -278,7 +282,7 @@
       <p>Compila il modulo: si apre WhatsApp con il messaggio già pronto da inviare.</p>
       <form class="form" id="repair-form" novalidate>
         <div class="row2">
-          <div class="field"><label for="r-name">Il tuo nome</label><input id="r-name" name="name" autocomplete="given-name" required></div>
+          <div class="field"><label for="r-name">Il tuo nome</label><input id="r-name" name="name" autocomplete="given-name" autocapitalize="words" enterkeyhint="next" required></div>
           <div class="field"><label for="r-tel">Telefono <span style="font-weight:400;color:var(--muted)">(facoltativo)</span></label><input id="r-tel" name="tel" type="tel" autocomplete="tel" inputmode="tel"></div>
         </div>
         <div class="field">
@@ -322,7 +326,7 @@
         </div>
         <div class="row2">
           <div class="field"><label for="n-qty">Quante bici?</label><input id="n-qty" name="qty" type="number" min="1" max="20" value="1" inputmode="numeric"></div>
-          <div class="field"><label for="n-name">Il tuo nome</label><input id="n-name" name="name" autocomplete="given-name" required></div>
+          <div class="field"><label for="n-name">Il tuo nome</label><input id="n-name" name="name" autocomplete="given-name" autocapitalize="words" enterkeyhint="done" required></div>
         </div>
         <div class="form-foot">
           <button class="btn btn-wa btn-block" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Invia su WhatsApp</button>
@@ -492,6 +496,6 @@
   <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=36.7336496,14.8522478" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Indicazioni</a>
 </nav>
 
-<script src="js/main.js?v=2"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

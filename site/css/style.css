@@ -60,17 +60,12 @@ button, input, select, textarea { font: inherit; color: inherit; }
   border: 2px solid transparent; border-radius: 999px; cursor: pointer;
   transition: transform .18s ease, background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
 .btn-red { background: var(--red); color: #fff; box-shadow: 0 10px 24px -10px rgba(215, 25, 31, .7); }
-.btn-red:hover { background: var(--red-deep); }
 .btn-wa { background: #fff; color: var(--ink); }
-.btn-wa:hover { background: var(--paper-2); }
 .btn-ghost { border-color: currentColor; color: inherit; background: transparent; }
-.btn-ghost:hover { background: rgba(255, 255, 255, .08); }
 .btn-dark { background: var(--ink); color: #fff; }
-.btn-dark:hover { background: var(--ink-3); }
-.btn-sm { min-height: 42px; padding: 0 1.1em; font-size: 1rem; }
+.btn-sm { min-height: 46px; padding: 0 1.1em; font-size: 1rem; }
 .btn-block { width: 100%; }
 
 /* ---------- Header ---------- */
@@ -90,7 +85,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .nav { display: none; }
 .nav ul { display: flex; align-items: center; gap: 4px; }
 .nav a { display: block; padding: 10px 12px; white-space: nowrap; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: .95rem; color: #ddd9d0; transition: background .15s, color .15s; }
-.nav a:hover { background: rgba(255, 255, 255, .09); color: #fff; }
 .header-cta { display: none; white-space: nowrap; }
 
 .burger { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 46px; height: 46px; padding: 0 12px; background: transparent; border: 1px solid var(--line-dark); border-radius: 12px; cursor: pointer; }
@@ -176,7 +170,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 /* ---------- Striscia scorrevole ---------- */
 .ticker { background: var(--red); color: #fff; overflow: hidden; border-block: 3px solid var(--ink); white-space: nowrap; }
 .ticker-track { display: inline-flex; animation: ticker 38s linear infinite; }
-.ticker:hover .ticker-track { animation-play-state: paused; }
 .ticker span { display: inline-flex; align-items: center; gap: 28px; padding: 12px 14px; font-family: var(--display); font-variation-settings: "wdth" 80; text-transform: uppercase; font-weight: 700; font-size: 1.45rem; letter-spacing: .04em; }
 .ticker span::after { content: ""; width: 10px; height: 10px; background: var(--ink); transform: rotate(45deg); }
 @keyframes ticker { to { transform: translateX(-50%); } }
@@ -206,18 +199,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
   transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
 }
-.svc:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -24px rgba(14, 14, 15, .45); background: var(--ink); color: #fff; }
 .svc-num { position: absolute; right: 18px; top: 4px; font-family: var(--display); font-variation-settings: "wdth" 75; font-weight: 700; font-size: 7.5rem; line-height: 1; color: rgba(14, 14, 15, .07); transition: color .25s; }
-.svc:hover .svc-num { color: rgba(255, 255, 255, .09); }
 .svc-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: var(--red); color: #fff; }
 .svc-icon .ico { width: 34px; height: 34px; }
 .svc h3 { font-size: 2.5rem; margin-top: 22px; }
 .svc p { margin: 0; flex: 1; color: var(--muted); transition: color .25s; }
-.svc:hover p { color: #c9c5bb; }
 .svc-link { display: inline-flex; align-items: center; gap: .5em; font-weight: 700; color: var(--red); transition: color .25s; }
-.svc:hover .svc-link { color: var(--red-hi); }
 .svc-link .ico { transition: transform .2s; }
-.svc:hover .svc-link .ico { transform: translateX(5px); }
 
 /* ---------- Vendita: griglia categorie ---------- */
 .cats { display: grid; gap: 14px; grid-template-columns: 1fr; }
@@ -228,16 +216,13 @@ button, input, select, textarea { font: inherit; color: inherit; }
   background: var(--ink-2); border: 1px solid var(--line-dark);
   transition: border-color .2s, transform .2s, background-color .2s;
 }
-.cat:hover { border-color: var(--red-hi); transform: translateY(-4px); background: var(--ink-3); }
 .cat .ico { width: 44px; height: 44px; color: var(--red-hi); stroke-width: 1.5; }
 .cat h3 { font-size: 1.85rem; margin-top: 6px; }
 .cat p { margin: 0; color: var(--muted-on-dark); font-size: .98rem; flex: 1; }
 .cat a { display: inline-flex; align-items: center; gap: .5em; margin-top: 8px; font-weight: 700; color: #fff; text-decoration: none; font-size: .95rem; }
 .cat a .ico { width: 1.1em; height: 1.1em; color: var(--red-hi); stroke-width: 2; transition: transform .2s; }
-.cat a:hover .ico { transform: translateX(4px); }
 .cat-wide { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px 24px; background: var(--red); border-color: var(--red); }
 .cat-wide > div { flex: 1 1 220px; }
-.cat-wide:hover { background: var(--red-deep); border-color: var(--red-deep); }
 .cat-wide .ico { color: #fff; }
 .cat-wide p { color: #ffe3e3; }
 .cat a.btn { margin-top: 0; font-size: 1rem; color: var(--ink); }
@@ -248,7 +233,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------- Split (riparazioni / noleggio) ---------- */
 .split { display: grid; gap: clamp(28px, 5vw, 64px); align-items: start; }
-@media (min-width: 960px) { .split { grid-template-columns: 1.1fr .9fr; } .split.rev { grid-template-columns: .9fr 1.1fr; } .split.rev > :first-child { order: 2; } }
+.split.rev > :first-child { order: 2; } /* il modulo sta sempre dopo il testo, anche su smartphone */
+@media (min-width: 960px) { .split { grid-template-columns: 1.1fr .9fr; } .split.rev { grid-template-columns: .9fr 1.1fr; } }
 
 .steps { counter-reset: st; display: grid; gap: 14px; margin: 30px 0; padding: 0; list-style: none; }
 .steps li { counter-increment: st; position: relative; padding: 4px 0 4px 66px; min-height: 52px; }
@@ -294,7 +280,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .form-foot { display: grid; gap: 10px; }
 .form-foot small { color: var(--muted); font-size: .85rem; }
 .form .btn-wa { background: #1fa855; color: #fff; }
-.form .btn-wa:hover { background: #178544; }
 
 /* ---------- Noleggio: card tariffe ---------- */
 .rent-types { display: grid; gap: 14px; margin: 28px 0; }
@@ -335,7 +320,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .info .ico { width: 28px; height: 28px; color: var(--red-hi); margin-top: 3px; }
 .info dt, .info .t { font-family: var(--display); font-variation-settings: "wdth" 85; text-transform: uppercase; letter-spacing: .14em; font-weight: 600; font-size: .9rem; color: var(--muted-on-dark); }
 .info a { text-decoration: none; font-size: 1.5rem; font-weight: 600; }
-.info a:hover { color: var(--red-hi); }
 .info .addr { font-size: 1.3rem; font-weight: 600; }
 .info .sub { color: var(--muted-on-dark); font-size: .95rem; }
 .contact-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
@@ -355,7 +339,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 @media (min-width: 760px) { .foot { grid-template-columns: 1.4fr 1fr 1fr; padding-bottom: 0; } .site-footer { padding-bottom: 40px; } }
 .foot b { color: #fff; font-family: var(--display); font-variation-settings: "wdth" 78; text-transform: uppercase; font-size: 1.4rem; display: block; margin-bottom: 8px; letter-spacing: .02em; }
 .foot a { color: #d8d4cb; text-decoration: none; }
-.foot a:hover { color: var(--red-hi); text-decoration: underline; }
 .foot ul { display: grid; gap: 6px; }
 .copy { margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--line-dark); font-size: .85rem; }
 
@@ -386,3 +369,133 @@ button, input, select, textarea { font: inherit; color: inherit; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Effetti hover: solo dove c'è un mouse (su touch restavano attivi dopo il tocco) ---------- */
+@media (hover: hover) {
+  .btn:hover { transform: translateY(-2px); }
+  .btn-red:hover { background: var(--red-deep); }
+  .btn-wa:hover { background: var(--paper-2); }
+  .btn-ghost:hover { background: rgba(255, 255, 255, .08); }
+  .btn-dark:hover { background: var(--ink-3); }
+  .nav a:hover { background: rgba(255, 255, 255, .09); color: #fff; }
+  .ticker:hover .ticker-track { animation-play-state: paused; }
+  .svc:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -24px rgba(14, 14, 15, .45); background: var(--ink); color: #fff; }
+  .svc:hover .svc-num { color: rgba(255, 255, 255, .09); }
+  .svc:hover p { color: #c9c5bb; }
+  .svc:hover .svc-link { color: var(--red-hi); }
+  .svc:hover .svc-link .ico { transform: translateX(5px); }
+  .cat:hover { border-color: var(--red-hi); transform: translateY(-4px); background: var(--ink-3); }
+  .cat a:hover .ico { transform: translateX(4px); }
+  .cat-wide:hover { background: var(--red-deep); border-color: var(--red-deep); }
+  .form .btn-wa:hover { background: #178544; }
+  .info a:hover { color: var(--red-hi); }
+  .foot a:hover { color: var(--red-hi); text-decoration: underline; }
+}
+
+/* ==========================================================================
+   Mobile  (il sito si usa soprattutto da telefono)
+   ========================================================================== */
+html { -webkit-tap-highlight-color: rgba(215, 25, 31, .2); }
+a, button, label, select, summary { touch-action: manipulation; }
+
+/* Bersagli da toccare comodi (>= 44 px) su qualsiasi schermo */
+.foot a { display: inline-block; padding: 11px 0; }
+.foot ul { gap: 0; }
+.info a { display: inline-block; padding: 6px 0; }
+.info .sub a { padding: 12px 4px; }
+.form-foot small a { display: inline-block; padding: 12px 4px; }
+.cat a:not(.btn) { min-height: 44px; }
+.nav-cta { display: none; }
+
+/* Barra azioni: compare dopo i pulsanti dell'hero, sparisce con la tastiera o il menu aperto */
+.dock { bottom: max(8px, env(safe-area-inset-bottom)); transition: transform .3s ease, opacity .3s ease; }
+.js .dock { transform: translateY(150%); opacity: 0; pointer-events: none; }
+.js .dock.show { transform: none; opacity: 1; pointer-events: auto; }
+.typing .dock, .menu-open .dock { display: none; }
+html.menu-open { overflow: hidden; }
+
+/* Menu: pannello a tutta altezza */
+@media (max-width: 1039px) {
+  :root { --header-h: 60px; }
+  .brand-mark { width: 38px; height: 38px; }
+  .brand-name b { font-size: 1.4rem; }
+  .nav.open { display: flex; flex-direction: column; height: calc(100vh - var(--header-h)); height: calc(100dvh - var(--header-h)); overflow-y: auto; overscroll-behavior: contain; }
+  .nav.open a { padding: 16px 4px; }
+  .nav.open .nav-cta { display: grid; gap: 10px; margin-top: auto; padding: 26px 0 8px; }
+  .nav .nav-cta a.btn { display: inline-flex; padding: 0 1.5em; font-size: 1.2rem; border: 2px solid transparent; border-radius: 999px; }
+  .nav .nav-cta a.btn-red { background: var(--red); color: #fff; }
+  .nav .nav-cta a.btn-wa { background: #fff; color: var(--ink); }
+}
+
+/* Hero: la foto si vede intera (sul telefono un ritaglio a tutta altezza la ingrandiva e sgranava) */
+@media (max-width: 899px) {
+  .hero { display: block; min-height: 0; padding: calc(56.34vw - 14px) 0 40px; }
+  .hero-bg {
+    inset: 0 0 auto 0; height: auto; aspect-ratio: 1278 / 720; object-position: 50% 50%;
+    -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 72%, transparent 100%);
+  }
+  .hero::before { inset: 0 0 auto 0; height: 56.34vw; background: linear-gradient(180deg, rgba(14, 14, 15, .4) 0%, rgba(14, 14, 15, 0) 30%); }
+  .eyebrow { margin-bottom: 14px; }
+  .hero-lead { margin: 18px 0 22px; }
+  .hero-tags { flex-wrap: nowrap; overflow-x: auto; margin: 22px calc(-1 * var(--gutter)) 0; padding: 2px var(--gutter); scrollbar-width: none; }
+  .hero-tags::-webkit-scrollbar { display: none; }
+  .hero-tags li { flex: none; }
+}
+
+/* Smartphone: pagina più corta, elementi compatti */
+@media (max-width: 599px) {
+  .section { padding: 52px 0; }
+  .section-head { margin-bottom: 26px; }
+  .section h2 { font-size: clamp(2.3rem, 11.5vw, 3rem); }
+  .card { padding: 20px; }
+  .card h3 { font-size: 1.9rem; }
+
+  /* Servizi */
+  .services { gap: 12px; }
+  .svc { display: grid; grid-template-columns: 52px 1fr; column-gap: 16px; row-gap: 6px; align-items: start; min-height: 0; padding: 20px 18px; }
+  .svc-icon { grid-row: 1 / span 3; width: 52px; height: 52px; border-radius: 14px; }
+  .svc-icon .ico { width: 28px; height: 28px; }
+  .svc h3, .svc p, .svc-link { grid-column: 2; }
+  .svc h3 { font-size: 2rem; margin: 0; }
+  .svc p { flex: none; }
+  .svc-link { padding-top: 6px; }
+  .svc-num { font-size: 4.4rem; right: 12px; top: -2px; }
+
+  /* Vendita: righe compatte (icona a sinistra) */
+  .cats { gap: 10px; }
+  .cat { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; row-gap: 2px; align-items: start; padding: 16px; }
+  .cat > .ico { grid-column: 1; grid-row: 1 / span 3; width: 38px; height: 38px; margin-top: 2px; }
+  .cat h3, .cat p, .cat a { grid-column: 2; }
+  .cat h3 { font-size: 1.65rem; margin: 0; }
+  .cat p { flex: none; font-size: .95rem; }
+  .cat a:not(.btn) { margin-top: 2px; }
+  .cat.cat-wide > .ico { grid-row: 1; }
+  .cat.cat-wide > div { grid-column: 2; }
+  .cat.cat-wide a.btn { grid-column: 1 / -1; width: 100%; margin-top: 10px; }
+
+  /* Noleggio */
+  .rent-types { gap: 10px; margin: 22px 0; }
+  .rent { display: grid; grid-template-columns: 42px 1fr; column-gap: 14px; align-items: start; padding: 16px; }
+  .rent > .ico { grid-row: 1 / span 3; }
+  .rent h3, .rent p, .rent .tag { grid-column: 2; }
+  .rent h3 { margin: 0 0 4px; }
+  .rent .tag { justify-self: start; margin-top: 10px; font-size: .88rem; }
+
+  /* Chi siamo / contatti */
+  .poster { display: none; }
+  .stat span { font-size: .9rem; }
+  .map { min-height: 320px; }
+  .site-footer { padding-top: 34px; }
+}
+
+/* Tutta la card è un'area da toccare (link "Chiedi info" esteso a tutta la card) */
+.cat { position: relative; }
+.cat a:not(.btn)::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.cat a:not(.btn):focus-visible { outline: none; }
+.cat a:not(.btn):focus-visible::after { outline: 3px solid var(--red-hi); outline-offset: 2px; }
+.brand { min-height: 44px; }
+
+/* La colonna dell'hero non deve allargarsi per la riga di etichette scorrevole (telefoni piccoli) */
+@media (max-width: 899px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 400px) { .eyebrow { font-size: .85rem; letter-spacing: .15em; } .eyebrow::before { width: 24px; } }
