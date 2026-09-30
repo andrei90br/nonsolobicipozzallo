@@ -1,0 +1,6 @@
+# Mantiene UTF-8 e fine riga coerenti (i testi contengono caratteri accentati)
+* text=auto eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.webp binary
