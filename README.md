@@ -1,5 +1,49 @@
-# Non Solo Bici Pozzallo
+# Non Solo Bici Pozzallo — sito web
 
-Sito web di **Non Solo Bici** (Viale Europa snc, Pozzallo): vendita, riparazioni e noleggio di biciclette.
+Sito statico (HTML + CSS + JS, nessuna dipendenza, nessun font o script di terze parti) per
+**Non Solo Bici di Giudice Michele** — Viale Europa snc, 97016 Pozzallo (RG).
 
-Il sito si trova nel branch [`sito-nuovo`](../../tree/sito-nuovo).
+Serve come vetrina pubblicitaria e come punto di contatto per **vendita**, **riparazioni** e **noleggio** (bici ed e-bike).
+
+## Anteprima in locale
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\serve.ps1 -Port 5174
+```
+
+Poi apri <http://localhost:5174/>. (In Claude Code è già configurato come `non-solo-bici` in `.claude/launch.json`.)
+
+## Pubblicazione
+
+Basta caricare **il contenuto della cartella `site/`** su qualsiasi hosting statico (Netlify, Cloudflare Pages,
+GitHub Pages, hosting tradizionale via FTP…). Non serve nessun build.
+
+## Struttura
+
+```
+site/
+  index.html        pagina unica: hero, servizi, vendita, riparazioni, noleggio, chi siamo, contatti
+  privacy.html      informativa privacy (bozza)
+  css/style.css     stile (palette rosso/nero/carta dal logo)
+  js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
+  assets/favicon.svg
+serve.ps1           mini server locale
+```
+
+## Da completare / verificare (segnalato con commenti `DA COMPLETARE` in `index.html`)
+
+| Cosa | Dove | Note |
+|---|---|---|
+| **Orari di apertura** | `index.html`, sezione Contatti | Non pubblici su Facebook/Instagram: al momento il sito invita a chiamare. |
+| **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
+| **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
+| **Foto reali** del negozio e dei prodotti | — | Non sono state copiate dai social (diritti d'autore): il sito usa illustrazioni SVG. Aggiungile in `site/assets/` e inseriscile dove preferisci. |
+| **Dominio e `og:image`** | `<head>` di `index.html` | Quando c'è il dominio, aggiungi `canonical`, `og:url` e un'immagine 1200×630 per le anteprime social. |
+| **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
+| **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
+
+## Dati di partenza (fonti)
+
+- Facebook *Non Solo Bici | Pozzallo*: servizi (vendita bici nuove/usate, vendita auto, accessori, riparazioni, noleggio bici e e-bike), indirizzo, cellulare 331 838 0840.
+- Instagram *@non_solo_bici_pozzallo*: bio (vendita bici & auto, riparazioni, ricambi & accessori, noleggio), in evidenza Fat Bike / monopattini / usato / BMX-Freestyle.
+- Directory pubbliche (BikeTourism.org): telefono fisso 0932 797162 e coordinate per la mappa.
