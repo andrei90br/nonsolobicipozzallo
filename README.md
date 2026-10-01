@@ -89,7 +89,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 
 ```
 site/
-  index.html        pagina unica: hero, servizi, vendita (+ galleria), officina e noleggio (due schede), chi siamo, recensioni, FAQ, contatti
+  index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo, recensioni, FAQ, contatti
   privacy.html      informativa privacy (bozza)
   404.html          pagina "non trovata" autonoma
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI

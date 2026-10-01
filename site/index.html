@@ -11,9 +11,9 @@
   <meta name="geo.placename" content="Pozzallo">
   <meta name="geo.position" content="36.7336496;14.8522478">
   <meta name="ICBM" content="36.7336496, 14.8522478">
-  <link rel="icon" href="assets/favicon-32.png?v=12" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/logo-192.png?v=12" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=12">
+  <link rel="icon" href="assets/favicon-32.png?v=14" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/logo-192.png?v=14" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=14">
   <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
@@ -32,8 +32,8 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=12">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=12" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=14" fetchpriority="high">
 
   <!-- Dati strutturati (schema.org). Orari presi dalla scheda Google (2 ott 2026): se cambiano, aggiornare openingHoursSpecification, la sezione Contatti, le FAQ, llms.txt e gli orari in js/main.js. priceRange: non noto. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
@@ -232,13 +232,12 @@
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="#top" aria-label="Non Solo Bici Pozzallo — inizio pagina">
-      <img class="brand-mark" src="assets/logo-192.png?v=12" width="46" height="46" alt="">
+      <img class="brand-mark" src="assets/logo-192.png?v=14" width="46" height="46" alt="">
       <span class="brand-name"><b>Non Solo <em>Bici</em></b><small>Pozzallo</small></span>
     </a>
 
     <nav class="nav" id="nav" aria-label="Menu principale">
       <ul>
-        <li><a href="#servizi">Servizi</a></li>
         <li><a href="#vendita">Vendita</a></li>
         <li><a href="#riparazioni">Riparazioni</a></li>
         <li><a href="#noleggio">Noleggio</a></li>
@@ -260,7 +259,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=12" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=14" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -300,8 +299,9 @@
   </div>
 </div>
 
-<!-- ============================ SERVIZI ============================ -->
-<section class="section" id="servizi">
+<!-- ================== NEGOZIO, OFFICINA E NOLEGGIO ================== -->
+<!-- Servizi e vendita nella stessa sezione: in alto le tre voci (vendita, riparazioni, noleggio), sotto i prodotti con la galleria (#vendita). -->
+<section class="section section-dark" id="servizi">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="kicker">Negozio, officina e noleggio</p>
@@ -314,34 +314,30 @@
         <span class="svc-num" aria-hidden="true">01</span>
         <span class="svc-icon"><svg class="ico" aria-hidden="true"><use href="#i-bike"/></svg></span>
         <h3>Vendita</h3>
-        <p>Bici nuove e usate, e-bike e fat bike, più assistenza per mezzi elettrici. Ti aiutiamo a scegliere quella giusta.</p>
-        <span class="svc-link">Scopri cosa vendiamo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        <p>Bici nuove e usate, e-bike, fat bike e assistenza per mezzi elettrici.</p>
+        <span class="svc-link" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
       <a class="svc reveal" href="#riparazioni" style="--d:.1s">
         <span class="svc-num" aria-hidden="true">02</span>
         <span class="svc-icon"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg></span>
         <h3>Riparazioni</h3>
-        <p>Officina per la tua bici: dalla foratura al controllo completo. Descrivici il problema e ti diciamo cosa serve.</p>
-        <span class="svc-link">Richiedi una riparazione <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        <p>Dalla foratura al controllo completo: dicci il problema, ti diciamo cosa serve.</p>
+        <span class="svc-link" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
       <a class="svc reveal" href="#noleggio" style="--d:.2s">
         <span class="svc-num" aria-hidden="true">03</span>
         <span class="svc-icon"><svg class="ico" aria-hidden="true"><use href="#i-key"/></svg></span>
         <h3>Noleggio</h3>
-        <p>Bici ed e-bike a noleggio per girare Pozzallo e dintorni senza portarti la tua.</p>
-        <span class="svc-link">Chiedi disponibilità <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        <p>Bici ed e-bike per girare Pozzallo e dintorni senza portarti la tua.</p>
+        <span class="svc-link" aria-hidden="true"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></span>
       </a>
     </div>
-  </div>
-</section>
 
-<!-- ============================ VENDITA ============================ -->
-<section class="section section-dark" id="vendita">
-  <div class="wrap">
-    <div class="section-head reveal">
+    <div class="vendita-block" id="vendita">
+    <div class="vendita-head reveal">
       <p class="kicker">Vendita biciclette a Pozzallo</p>
-      <h2>Trova la tua <em>bici.</em></h2>
-      <p>Nuove o usate, per la città, lo sterrato o lo sport. Le disponibilità cambiano spesso: scrivici e ti diciamo cosa abbiamo.</p>
+      <h3 class="panel-title">Trova la tua <em>bici.</em></h3>
+      <p class="panel-lead">Nuove o usate, per la città, lo sterrato o lo sport. Le disponibilità cambiano spesso: scrivici e ti diciamo cosa abbiamo.</p>
     </div>
 
     <div class="cats">
@@ -420,6 +416,7 @@
         <a class="btn btn-wa wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Ho visto le foto sul vostro sito e vorrei informazioni."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Chiedi info su WhatsApp</a>
       </div>
     </div>
+    </div><!-- /vendita-block -->
   </div>
 </section>
 
@@ -568,7 +565,7 @@
     </div>
 
     <div class="poster reveal" style="--d:.1s" aria-hidden="true">
-      <img class="poster-logo" src="assets/logo.png?v=12" width="600" height="600" alt="" loading="lazy" decoding="async">
+      <img class="poster-logo" src="assets/logo.png?v=14" width="600" height="600" alt="" loading="lazy" decoding="async">
       <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
     </div>
   </div>
@@ -723,7 +720,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img class="foot-logo" src="assets/logo-192.png?v=12" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
+        <img class="foot-logo" src="assets/logo-192.png?v=14" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
         <address style="font-style:normal">
@@ -777,6 +774,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=12"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>

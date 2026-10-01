@@ -525,7 +525,7 @@ html.menu-open { overflow: hidden; }
 .poster-logo { align-self: start; margin-top: 9%; width: 64%; height: auto; border-radius: 24px; background: #fff; box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .7); }
 
 /* ---------- Galleria foto + visualizzatore ---------- */
-.gallery { margin-top: clamp(48px, 7vw, 84px); padding-top: clamp(30px, 5vw, 56px); border-top: 1px solid var(--line-dark); scroll-margin-top: calc(var(--header-h) + 12px); }
+.gallery { margin-top: clamp(48px, 7vw, 84px); padding-top: clamp(30px, 5vw, 56px); border-top: 1px solid var(--line-dark); }
 .gallery-head h3 { font-size: clamp(2.2rem, 6vw, 3.4rem); }
 .gallery-head p { margin: 12px 0 0; color: var(--muted-on-dark); max-width: 38em; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0; }
@@ -754,4 +754,37 @@ a.stat { text-decoration: none; color: inherit; display: block; }
   .tab { flex: 1; padding: 0 8px; font-size: 1.05rem; }
   .panel-title { font-size: 1.9rem; }
   .panel-lead { margin-top: 8px; font-size: 1rem; }
+}
+
+/* ---------- Servizi + vendita nella stessa sezione ---------- */
+.section-dark .svc { background: var(--ink-2); border-color: var(--line-dark); color: #fff; }
+.section-dark .svc p { color: var(--muted-on-dark); }
+.section-dark .svc-num { color: rgba(255, 255, 255, .06); }
+.section-dark .svc-link { color: var(--red-hi); }
+@media (hover: hover) {
+  .section-dark .svc:hover { background: var(--ink-3); border-color: var(--red-hi); box-shadow: none; }
+  .section-dark .svc:hover .svc-num { color: rgba(255, 255, 255, .1); }
+  .section-dark .svc:hover p { color: #d8d4cb; }
+}
+#servizi .services { gap: 10px; }
+#servizi .svc { display: grid; grid-template-columns: 54px 1fr; column-gap: 16px; row-gap: 2px; align-items: start; min-height: 0; padding: 18px 20px; }
+#servizi .svc-icon { grid-row: 1 / span 2; width: 54px; height: 54px; border-radius: 15px; }
+#servizi .svc-icon .ico { width: 28px; height: 28px; }
+#servizi .svc h3, #servizi .svc p { grid-column: 2; }
+#servizi .svc h3 { margin: 0; font-size: 1.9rem; }
+#servizi .svc p { flex: none; font-size: .96rem; line-height: 1.4; }
+#servizi .svc-num { top: 0; right: 14px; font-size: 3.6rem; }
+#servizi .svc-link { position: absolute; right: 16px; bottom: 14px; }
+#servizi .svc-link .ico { width: 22px; height: 22px; stroke-width: 2.2; }
+.vendita-block { margin-top: clamp(30px, 4.5vw, 50px); padding-top: clamp(24px, 4vw, 38px); border-top: 1px solid var(--line-dark); }
+.vendita-head { margin-bottom: clamp(18px, 3vw, 26px); }
+.section-dark .panel-title em { color: var(--red-hi); }
+.section-dark .panel-lead { color: var(--muted-on-dark); }
+@media (max-width: 599px) {
+  #servizi .svc { padding: 14px 14px; column-gap: 12px; }
+  #servizi .svc-icon { width: 46px; height: 46px; border-radius: 13px; }
+  #servizi .svc { grid-template-columns: 46px 1fr; }
+  #servizi .svc h3 { font-size: 1.6rem; }
+  #servizi .svc-num { font-size: 2.8rem; right: 10px; }
+  .vendita-block { margin-top: 22px; padding-top: 20px; }
 }
