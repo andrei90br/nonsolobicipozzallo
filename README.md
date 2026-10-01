@@ -70,7 +70,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 **Nel sito** (già fatto):
 - **Titoli e testi con parole chiave locali:** H1 "Negozio di bici a Pozzallo: Non solo bici.", etichette di sezione tipo "Noleggio bici ed e-bike a Pozzallo", meta description, indirizzo canonico `https://nonsolobicipozzallo.it/`.
 - **Dati strutturati** (JSON-LD in `<head>`): `BicycleStore` con indirizzo, coordinate, telefoni, profili social, catalogo servizi e prodotti, più `WebSite`, `WebPage`, `ImageObject` e `FAQPage`. Contengono gli orari di apertura (dalla scheda Google, `openingHoursSpecification`) ma non i prezzi, che non sono noti.
-- **Sezione "Domande frequenti"** (`#faq`): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
+- **Piccolo FAQ "Domande frequenti"** (`#faq`, in fondo alla pagina prima del footer): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
 - **"Chi siamo"** apre con una frase-definizione (chi è, dove, cosa fa): è quella che motori di ricerca e assistenti AI tendono a citare.
 - **Posizione:** tag `geo.*`, `<address>` semantico, telefono e indirizzo uguali ovunque (nome, indirizzo e telefono sempre identici).
 - **File per crawler e AI:** `robots.txt` (tutto consentito), `sitemap.xml`, `llms.txt` (scheda riassuntiva in italiano e inglese), pagina `404.html`.
@@ -89,7 +89,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 
 ```
 site/
-  index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo + recensioni (un’unica sezione scura), FAQ, contatti
+  index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo + recensioni (un’unica sezione scura), contatti, piccolo FAQ in fondo
   privacy.html      informativa privacy (bozza)
   404.html          pagina "non trovata" autonoma
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI

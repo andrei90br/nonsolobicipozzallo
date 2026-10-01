@@ -807,3 +807,17 @@ a.stat { text-decoration: none; color: inherit; display: block; }
   .reviews-block { margin-top: 22px; padding-top: 20px; }
   .reviews-top { gap: 10px; margin-bottom: 14px; }
 }
+
+/* ---------- FAQ piccola, in fondo alla pagina ---------- */
+.faq-section { padding: clamp(26px, 4vw, 44px) 0; }
+.faq-head { margin-bottom: 14px; }
+.faq-section .kicker { margin-bottom: 4px; font-size: .85rem; }
+.faq-section .faq-title { font-size: clamp(1.5rem, 3.2vw, 2rem); line-height: 1; }
+.faq-section .faq { gap: 8px; }
+.faq-section .faq-item { border-radius: 12px; }
+.faq-section .faq-item summary { min-height: 46px; padding: 8px 14px; font-size: .97rem; }
+.faq-section .faq-a { padding: 0 14px 12px; font-size: .95rem; }
+@media (max-width: 599px) {
+  .faq-section { padding: 26px 0 22px; }
+  .faq-section .faq-item summary { font-size: .95rem; }
+}
