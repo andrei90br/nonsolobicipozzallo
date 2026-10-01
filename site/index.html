@@ -11,9 +11,9 @@
   <meta name="geo.placename" content="Pozzallo">
   <meta name="geo.position" content="36.7336496;14.8522478">
   <meta name="ICBM" content="36.7336496, 14.8522478">
-  <link rel="icon" href="assets/favicon-32.png?v=14" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/logo-192.png?v=14" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=14">
+  <link rel="icon" href="assets/favicon-32.png?v=15" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/logo-192.png?v=15" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=15">
   <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
@@ -32,8 +32,8 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=14">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=14" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=15">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=15" fetchpriority="high">
 
   <!-- Dati strutturati (schema.org). Orari presi dalla scheda Google (2 ott 2026): se cambiano, aggiornare openingHoursSpecification, la sezione Contatti, le FAQ, llms.txt e gli orari in js/main.js. priceRange: non noto. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
@@ -232,7 +232,7 @@
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="#top" aria-label="Non Solo Bici Pozzallo — inizio pagina">
-      <img class="brand-mark" src="assets/logo-192.png?v=14" width="46" height="46" alt="">
+      <img class="brand-mark" src="assets/logo-192.png?v=15" width="46" height="46" alt="">
       <span class="brand-name"><b>Non Solo <em>Bici</em></b><small>Pozzallo</small></span>
     </a>
 
@@ -259,7 +259,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=14" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=15" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -538,78 +538,79 @@
   </div>
 </section>
 
-<!-- ============================ CHI SIAMO ============================ -->
-<section class="section" id="chi-siamo">
-  <div class="wrap about">
-    <div class="reveal">
-      <p class="kicker">Chi siamo</p>
-      <p class="big-quote">Il negozio di Pozzallo dove la bici è <em>di casa.</em></p>
-      <p style="margin-top:14px">
-        <strong>Non Solo Bici è un negozio di biciclette di Pozzallo (RG), in Viale Europa snc, gestito da Michele Giudice.</strong>
-        Vende biciclette nuove e usate, e-bike, fat bike, accessori e ricambi; ripara biciclette e assiste bici, scooter e monopattini elettrici; noleggia biciclette ed e-bike.
-      </p>
-      <p>
-        Per andare al lavoro, fare sport o scoprire il territorio, qui trovi un punto di riferimento. Seguiamo da vicino il ciclismo, anche con il Non Solo Bike Pro Team.
-      </p>
-
-      <div class="stats">
-        <a class="stat" href="#recensioni"><b>4,7 ★</b><span>su Google, 18 recensioni</span></a>
-        <div class="stat"><b>1.600+</b><span>persone ci seguono su Facebook</span></div>
-        <div class="stat"><b>E-bike</b><span>vendita e noleggio</span></div>
-      </div>
-
-      <div class="socials">
-        <a class="btn btn-dark btn-sm" href="https://www.instagram.com/non_solo_bici_pozzallo/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
-        <a class="btn btn-dark btn-sm" href="https://www.facebook.com/giudice.michele01" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a>
-      </div>
-    </div>
-
-    <div class="poster reveal" style="--d:.1s" aria-hidden="true">
-      <img class="poster-logo" src="assets/logo.png?v=14" width="600" height="600" alt="" loading="lazy" decoding="async">
-      <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================ RECENSIONI ============================ -->
-<!-- Dati e testi dalla scheda Google (2 ott 2026): 4,7/5 su 18 recensioni. Aggiornare il numero ogni tanto e, se cambia, anche hero e "Chi siamo".
+<!-- ======================= CHI SIAMO E RECENSIONI ======================= -->
+<!-- Chi siamo e recensioni stanno nella stessa sezione: in alto la presentazione, sotto (#recensioni) la valutazione Google.
+     Dati e testi dalla scheda Google (2 ott 2026): 4,7/5 su 18 recensioni. Aggiornare il numero ogni tanto e, se cambia, anche il chip nell'hero.
      NON aggiungere aggregateRating/Review al JSON-LD: per le attività locali le recensioni "proprie" violano le linee guida di Google. -->
-<section class="section section-dark" id="recensioni">
+<section class="section section-dark" id="chi-siamo">
   <div class="wrap">
-    <div class="section-head reveal">
-      <p class="kicker">Recensioni su Google</p>
-      <h2>Parlano i <em>clienti.</em></h2>
-    </div>
+    <div class="about">
+      <div class="reveal">
+        <p class="kicker">Chi siamo</p>
+        <p class="big-quote">Il negozio di Pozzallo dove la bici è <em>di casa.</em></p>
+        <p style="margin-top:14px">
+          <strong>Non Solo Bici è un negozio di biciclette di Pozzallo (RG), in Viale Europa snc, gestito da Michele Giudice.</strong>
+          Vende biciclette nuove e usate, e-bike, fat bike, accessori e ricambi; ripara biciclette e assiste bici, scooter e monopattini elettrici; noleggia biciclette ed e-bike.
+        </p>
+        <p>
+          Per andare al lavoro, fare sport o scoprire il territorio, qui trovi un punto di riferimento. Seguiamo da vicino il ciclismo, anche con il Non Solo Bike Pro Team.
+        </p>
 
-    <div class="rating reveal">
-      <div class="rating-score" aria-label="Valutazione 4,7 su 5">4,7</div>
-      <div>
-        <span class="stars" style="--pct:94%" role="img" aria-label="4,7 stelle su 5"></span>
-        <p class="rating-sub"><strong>18 recensioni</strong> su Google · ottobre 2026</p>
+        <div class="stats">
+          <a class="stat" href="#recensioni"><b>4,7 ★</b><span>su Google, 18 recensioni</span></a>
+          <div class="stat"><b>1.600+</b><span>persone ci seguono su Facebook</span></div>
+          <div class="stat"><b>E-bike</b><span>vendita e noleggio</span></div>
+        </div>
+
+        <div class="socials">
+          <a class="btn btn-ghost btn-sm" href="https://www.instagram.com/non_solo_bici_pozzallo/" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a>
+          <a class="btn btn-ghost btn-sm" href="https://www.facebook.com/giudice.michele01" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-fb"/></svg>Facebook</a>
+        </div>
+      </div>
+
+      <div class="poster reveal" style="--d:.1s" aria-hidden="true">
+        <img class="poster-logo" src="assets/logo.png?v=15" width="600" height="600" alt="" loading="lazy" decoding="async">
+        <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
       </div>
     </div>
 
-    <div class="reviews reveal" role="list" aria-label="Alcune recensioni dei clienti" tabindex="0">
-      <figure class="review" role="listitem">
-        <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
-        <blockquote>Ottima preparazione da parte del proprietario e soprattutto davvero simpatico, locale ben servito e ottimi prezzi</blockquote>
-        <figcaption><b>Salvatore S.</b> · recensione su Google</figcaption>
-      </figure>
-      <figure class="review" role="listitem">
-        <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
-        <blockquote>Ho noleggiato due bici a Luglio 2025: il noleggio e’ situato in prossimità della fermata degli autobus Catania-Pozzallo. Il gestore è molto gentile e i prezzi giusti. Lo consiglio!</blockquote>
-        <figcaption><b>Sandra</b> · recensione su Google</figcaption>
-      </figure>
-      <figure class="review" role="listitem">
-        <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
-        <blockquote>Ho girato la Sicilia in bici ed incontrato diversi rivenditori e meccanici, mai nessuno educato, gentile, disponibile e competente come Michele. Consigliatissimo!</blockquote>
-        <figcaption><b>Claudio P.</b> · recensione su Google</figcaption>
-      </figure>
-    </div>
+    <div class="reviews-block" id="recensioni">
+      <div class="reviews-top reveal">
+        <div>
+          <p class="kicker">Recensioni su Google</p>
+          <h2 class="panel-title">Parlano i <em>clienti.</em></h2>
+        </div>
+        <div class="rating">
+          <div class="rating-score" aria-label="Valutazione 4,7 su 5">4,7</div>
+          <div>
+            <span class="stars" style="--pct:94%" role="img" aria-label="4,7 stelle su 5"></span>
+            <p class="rating-sub"><strong>18 recensioni</strong> su Google · ottobre 2026</p>
+          </div>
+        </div>
+      </div>
 
-    <div class="reviews-cta reveal">
-      <a class="btn btn-wa btn-sm" href="https://search.google.com/local/reviews?placeid=ChIJZT73J0SNERMRA-wFYyzmvQ4" target="_blank" rel="noopener">Leggi tutte</a>
-      <a class="btn btn-ghost btn-sm" href="https://search.google.com/local/writereview?placeid=ChIJZT73J0SNERMRA-wFYyzmvQ4" target="_blank" rel="noopener">Scrivi una recensione</a>
+      <div class="reviews reveal" role="list" aria-label="Alcune recensioni dei clienti" tabindex="0">
+        <figure class="review" role="listitem">
+          <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
+          <blockquote>Ottima preparazione da parte del proprietario e soprattutto davvero simpatico, locale ben servito e ottimi prezzi</blockquote>
+          <figcaption><b>Salvatore S.</b> · recensione su Google</figcaption>
+        </figure>
+        <figure class="review" role="listitem">
+          <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
+          <blockquote>Ho noleggiato due bici a Luglio 2025: il noleggio e’ situato in prossimità della fermata degli autobus Catania-Pozzallo. Il gestore è molto gentile e i prezzi giusti. Lo consiglio!</blockquote>
+          <figcaption><b>Sandra</b> · recensione su Google</figcaption>
+        </figure>
+        <figure class="review" role="listitem">
+          <span class="stars sm" style="--pct:100%" role="img" aria-label="5 stelle su 5"></span>
+          <blockquote>Ho girato la Sicilia in bici ed incontrato diversi rivenditori e meccanici, mai nessuno educato, gentile, disponibile e competente come Michele. Consigliatissimo!</blockquote>
+          <figcaption><b>Claudio P.</b> · recensione su Google</figcaption>
+        </figure>
+      </div>
+
+      <div class="reviews-cta reveal">
+        <a class="btn btn-wa btn-sm" href="https://search.google.com/local/reviews?placeid=ChIJZT73J0SNERMRA-wFYyzmvQ4" target="_blank" rel="noopener">Leggi tutte</a>
+        <a class="btn btn-ghost btn-sm" href="https://search.google.com/local/writereview?placeid=ChIJZT73J0SNERMRA-wFYyzmvQ4" target="_blank" rel="noopener">Scrivi una recensione</a>
+      </div>
     </div>
   </div>
 </section>
@@ -720,7 +721,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img class="foot-logo" src="assets/logo-192.png?v=14" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
+        <img class="foot-logo" src="assets/logo-192.png?v=15" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
         <address style="font-style:normal">
@@ -774,6 +775,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=14"></script>
+<script src="js/main.js?v=15"></script>
 </body>
 </html>

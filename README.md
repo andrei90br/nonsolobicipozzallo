@@ -35,7 +35,7 @@ In alternativa a GitHub Pages basta caricare **il contenuto di `site/`** su qual
 
 ## Pagina compatta
 
-Il sito è stato accorciato (2 ott 2026) mantenendo lo stesso aspetto: da ~13.900 a ~8.200 px su telefono e da ~11.200 a ~7.900 px su desktop.
+Il sito è stato accorciato (2 ott 2026) mantenendo lo stesso aspetto: da ~13.900 a ~8.150 px su telefono e da ~11.200 a ~7.450 px su desktop. Anche "Chi siamo" e "Recensioni" stanno nella stessa sezione (`#chi-siamo`, con `#recensioni` come blocco interno).
 **Riparazione e noleggio** stanno nella stessa sezione (`#officina`) con due schede (Riparazione / Noleggio); i link `#riparazioni` e
 `#noleggio` (menu, card dei servizi, footer, FAQ) aprono la scheda giusta. Senza JavaScript le due schede sono visibili una sotto l'altra.
 La galleria parte con 6 foto (8 su desktop) e un pulsante "Mostra tutte"; su telefono le card di Vendita sono in due colonne.
@@ -89,7 +89,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 
 ```
 site/
-  index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo, recensioni, FAQ, contatti
+  index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo + recensioni (un’unica sezione scura), FAQ, contatti
   privacy.html      informativa privacy (bozza)
   404.html          pagina "non trovata" autonoma
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI
@@ -118,9 +118,9 @@ serve.ps1           mini server locale
 
 ## Recensioni Google
 
-La sezione **"Parlano i clienti"** (`#recensioni`) mostra la valutazione (4,7 su 5, 18 recensioni, ottobre 2026) e tre recensioni
+Il blocco **"Parlano i clienti"** (`#recensioni`, dentro la sezione "Chi siamo", sotto la presentazione) mostra la valutazione (4,7 su 5, 18 recensioni, ottobre 2026) e tre recensioni
 da 5 stelle riportate parola per parola con nome e iniziale, più i link ufficiali "Leggi tutte" e "Lascia la tua recensione"
-(Place ID `ChIJZT73J0SNERMRA-wFYyzmvQ4`). Il numero compare anche nella prima schermata e in "Chi siamo".
+(Place ID `ChIJZT73J0SNERMRA-wFYyzmvQ4`). Il numero compare anche nella prima schermata (chip in hero) e tra le statistiche di "Chi siamo".
 I numeri sono scritti a mano: vanno aggiornati ogni tanto (in `index.html`, cercando "4,7"). **Non** aggiungere
 `aggregateRating` né `Review` ai dati strutturati: per le attività locali le recensioni "proprie" vanno contro le linee guida
 di Google e possono causare una penalizzazione.

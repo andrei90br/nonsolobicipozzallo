@@ -788,3 +788,22 @@ a.stat { text-decoration: none; color: inherit; display: block; }
   #servizi .svc-num { font-size: 2.8rem; right: 10px; }
   .vendita-block { margin-top: 22px; padding-top: 20px; }
 }
+
+/* ---------- Chi siamo + recensioni nella stessa sezione scura ---------- */
+.section-dark .about p { color: #d8d4cb; }
+.section-dark .about p strong { color: #fff; }
+.section-dark .about .big-quote { color: #fff; }
+.section-dark .big-quote em { color: var(--red-hi); }
+.section-dark .stat { background: var(--ink-2); border-color: var(--line-dark); }
+.section-dark .stat b { color: var(--red-hi); }
+.section-dark .stat span { color: var(--muted-on-dark); }
+@media (hover: hover) { .section-dark a.stat:hover { border-color: var(--red-hi); } }
+.poster { box-shadow: 0 0 0 1px var(--line-dark); }
+.reviews-block { margin-top: clamp(30px, 4.5vw, 50px); padding-top: clamp(24px, 4vw, 38px); border-top: 1px solid var(--line-dark); }
+.reviews-top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: 22px; }
+.reviews-top .kicker { margin-bottom: 8px; }
+.reviews-top .rating { margin-bottom: 0; }
+@media (max-width: 599px) {
+  .reviews-block { margin-top: 22px; padding-top: 20px; }
+  .reviews-top { gap: 10px; margin-bottom: 14px; }
+}
