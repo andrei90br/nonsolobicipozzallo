@@ -1,0 +1,6 @@
+# Il sito è pubblico: tutti i crawler, compresi quelli dei motori di ricerca basati su AI
+# (es. OAI-SearchBot, PerplexityBot, Claude-SearchBot, Google-Extended), possono leggerlo.
+User-agent: *
+Allow: /
+
+Sitemap: https://nonsolobicipozzallo.it/sitemap.xml

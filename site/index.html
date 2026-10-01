@@ -4,16 +4,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Non Solo Bici Pozzallo — Vendita, riparazioni e noleggio bici</title>
-  <meta name="description" content="Non Solo Bici a Pozzallo (RG), Viale Europa: vendita biciclette nuove e usate, e-bike, fat bike, BMX, monopattini e accessori. Officina riparazioni e noleggio bici ed e-bike.">
+  <meta name="description" content="Negozio di biciclette a Pozzallo (RG), Viale Europa: bici nuove e usate, e-bike, BMX, monopattini. Officina riparazioni e noleggio bici ed e-bike.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <meta name="theme-color" content="#0e0e0f">
+  <meta name="geo.region" content="IT-82">
+  <meta name="geo.placename" content="Pozzallo">
+  <meta name="geo.position" content="36.7336496;14.8522478">
+  <meta name="ICBM" content="36.7336496, 14.8522478">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
   <meta property="og:title" content="Non Solo Bici Pozzallo — Vendita, riparazioni e noleggio bici">
-  <meta property="og:description" content="Bici nuove e usate, e-bike, officina riparazioni e noleggio a Pozzallo. Viale Europa snc.">
-  <!-- Se il sito cambia indirizzo (dominio proprio), aggiornare l'URL assoluto dell'immagine -->
-  <meta property="og:image" content="https://andrei90br.github.io/nonsolobicipozzallo/assets/og.jpg">
+  <meta property="og:description" content="Negozio di biciclette a Pozzallo: bici nuove e usate, e-bike, officina riparazioni e noleggio. Viale Europa snc.">
+  <meta property="og:url" content="https://nonsolobicipozzallo.it/">
+  <meta property="og:site_name" content="Non Solo Bici Pozzallo">
+  <!-- Se il sito cambia indirizzo, aggiornare gli URL assoluti (canonical, og:url, og:image, JSON-LD, robots.txt, sitemap.xml, llms.txt) -->
+  <meta property="og:image" content="https://nonsolobicipozzallo.it/assets/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
@@ -21,29 +30,150 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=3">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=3" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=4">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=4" fetchpriority="high">
 
+  <!-- Dati strutturati (schema.org). DA COMPLETARE quando disponibili: openingHoursSpecification (orari) e priceRange. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BicycleStore",
-    "name": "Non Solo Bici",
-    "image": "https://andrei90br.github.io/nonsolobicipozzallo/assets/hero.jpg",
-    "description": "Vendita biciclette nuove e usate, e-bike, accessori e ricambi, officina riparazioni, noleggio biciclette ed e-bike a Pozzallo.",
-    "telephone": ["+393318380840", "+390932797162"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Viale Europa snc",
-      "postalCode": "97016",
-      "addressLocality": "Pozzallo",
-      "addressRegion": "RG",
-      "addressCountry": "IT"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 36.7336496, "longitude": 14.8522478 },
-    "sameAs": [
-      "https://www.facebook.com/giudice.michele01",
-      "https://www.instagram.com/non_solo_bici_pozzallo/"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://nonsolobicipozzallo.it/#website",
+        "url": "https://nonsolobicipozzallo.it/",
+        "name": "Non Solo Bici Pozzallo",
+        "inLanguage": "it-IT",
+        "publisher": { "@id": "https://nonsolobicipozzallo.it/#negozio" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://nonsolobicipozzallo.it/#webpage",
+        "url": "https://nonsolobicipozzallo.it/",
+        "name": "Non Solo Bici Pozzallo — Vendita, riparazioni e noleggio bici",
+        "description": "Negozio di biciclette a Pozzallo (RG), Viale Europa: bici nuove e usate, e-bike, BMX, monopattini. Officina riparazioni e noleggio bici ed e-bike.",
+        "inLanguage": "it-IT",
+        "isPartOf": { "@id": "https://nonsolobicipozzallo.it/#website" },
+        "about": { "@id": "https://nonsolobicipozzallo.it/#negozio" },
+        "primaryImageOfPage": { "@id": "https://nonsolobicipozzallo.it/#foto" },
+        "dateModified": "2026-10-01"
+      },
+      {
+        "@type": "ImageObject",
+        "@id": "https://nonsolobicipozzallo.it/#foto",
+        "url": "https://nonsolobicipozzallo.it/assets/hero.jpg",
+        "contentUrl": "https://nonsolobicipozzallo.it/assets/hero.jpg",
+        "width": 1278,
+        "height": 720,
+        "caption": "La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione"
+      },
+      {
+        "@type": "BicycleStore",
+        "@id": "https://nonsolobicipozzallo.it/#negozio",
+        "name": "Non Solo Bici",
+        "legalName": "Non Solo Bici di Giudice Michele",
+        "url": "https://nonsolobicipozzallo.it/",
+        "image": { "@id": "https://nonsolobicipozzallo.it/#foto" },
+        "description": "Negozio di biciclette a Pozzallo: vendita di biciclette nuove e usate, e-bike, fat bike, BMX, monopattini, accessori e ricambi (e auto), officina per riparazioni, noleggio di biciclette ed e-bike.",
+        "telephone": ["+393318380840", "+390932797162"],
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Viale Europa snc",
+          "postalCode": "97016",
+          "addressLocality": "Pozzallo",
+          "addressRegion": "RG",
+          "addressCountry": "IT"
+        },
+        "geo": { "@type": "GeoCoordinates", "latitude": 36.7336496, "longitude": 14.8522478 },
+        "hasMap": "https://www.google.com/maps/search/?api=1&query=36.7336496,14.8522478",
+        "areaServed": { "@type": "City", "name": "Pozzallo" },
+        "founder": { "@type": "Person", "name": "Michele Giudice" },
+        "contactPoint": [
+          { "@type": "ContactPoint", "telephone": "+393318380840", "contactType": "customer service", "availableLanguage": "Italian" }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/giudice.michele01",
+          "https://www.instagram.com/non_solo_bici_pozzallo/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Prodotti e servizi",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Vendita",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Biciclette nuove" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Biciclette usate" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "E-bike, anche pieghevoli" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Fat bike" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "BMX e freestyle" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Monopattini" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Accessori e ricambi per biciclette" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Product", "name": "Auto" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Riparazioni",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Riparazione e manutenzione biciclette", "serviceType": "Riparazione biciclette" } }
+              ]
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Noleggio",
+              "itemListElement": [
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Noleggio biciclette", "serviceType": "Noleggio biciclette" } },
+                { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Noleggio e-bike", "serviceType": "Noleggio e-bike" } }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://nonsolobicipozzallo.it/#faq",
+        "inLanguage": "it-IT",
+        "isPartOf": { "@id": "https://nonsolobicipozzallo.it/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Dove si trova Non Solo Bici?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Siamo a Pozzallo, in provincia di Ragusa, in Viale Europa snc (97016), vicino a Modica e Ispica." }
+          },
+          {
+            "@type": "Question",
+            "name": "Come posso contattarvi o sapere se siete aperti?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Chiama il 331 838 0840 oppure il fisso 0932 797162, o scrivici su WhatsApp al 331 838 0840: ti rispondiamo con orari e disponibilità." }
+          },
+          {
+            "@type": "Question",
+            "name": "Noleggiate biciclette ed e-bike?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì, noleggiamo sia biciclette sia e-bike. Dicci quando ti servono e per quanto tempo: ti rispondiamo con disponibilità e tariffa. Puoi scriverci dal modulo di noleggio del sito, telefonare o passare in negozio." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto costa noleggiare una bici o una e-bike?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La tariffa dipende dal mezzo e dalla durata, per esempio qualche ora, un giorno o una settimana. La comunichiamo su richiesta insieme alla disponibilità." }
+          },
+          {
+            "@type": "Question",
+            "name": "Riparate tutti i tipi di bicicletta?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ci occupiamo di manutenzione e riparazione di biciclette da città, MTB, bici da corsa, BMX e bici per ragazzi. Per e-bike e monopattini scrivici o chiamaci prima di portarli, così ti diciamo cosa possiamo fare." }
+          },
+          {
+            "@type": "Question",
+            "name": "Vendete biciclette nuove e usate?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì: biciclette nuove e usate, e-bike (anche pieghevoli), fat bike, BMX e freestyle, monopattini, accessori e ricambi. Le disponibilità cambiano spesso, quindi conviene chiedere prima." }
+          },
+          {
+            "@type": "Question",
+            "name": "Vendete anche auto?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì, oltre alle biciclette vendiamo anche auto. Chiedici quali sono disponibili." }
+          }
+        ]
+      }
     ]
   }
   </script>
@@ -115,12 +245,12 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=3" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=4" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Pozzallo · Viale Europa</p>
       <h1>
+        <span class="eyebrow">Negozio di bici a Pozzallo<span class="sr-only">: </span></span>
         <span class="outline">Non solo</span>
         <span class="red">bici.</span>
       </h1>
@@ -158,7 +288,7 @@
 <section class="section" id="servizi">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Cosa facciamo</p>
+      <p class="kicker">Negozio, officina e noleggio</p>
       <h2>Tutto per la tua <em>bici</em>, e non solo.</h2>
       <p>Da Non Solo Bici trovi tre servizi sotto lo stesso tetto: compri la bici giusta, la tieni in forma in officina e, se ti serve, la noleggi per un giorno o per una vacanza.</p>
     </div>
@@ -193,7 +323,7 @@
 <section class="section section-dark" id="vendita">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Vendita</p>
+      <p class="kicker">Vendita biciclette a Pozzallo</p>
       <h2>Trova la tua <em>bici.</em></h2>
       <p>Nuove o usate, per la città, per lo sterrato, per divertirsi o per fare sport. Le disponibilità cambiano spesso: scrivici e ti rispondiamo su cosa abbiamo in negozio.</p>
     </div>
@@ -259,7 +389,7 @@
 <section class="section" id="riparazioni">
   <div class="wrap split">
     <div class="reveal">
-      <p class="kicker">Officina</p>
+      <p class="kicker">Riparazione biciclette a Pozzallo</p>
       <h2>La tua bici di nuovo <em>in strada.</em></h2>
       <p style="margin-top:18px;color:var(--muted);font-size:1.12rem">Dalla camera d'aria bucata al freno che non frena: in officina ci occupiamo della manutenzione e delle riparazioni della tua bicicletta.</p>
 
@@ -336,7 +466,7 @@
     </div>
 
     <div class="reveal">
-      <p class="kicker">Noleggio</p>
+      <p class="kicker">Noleggio bici ed e-bike a Pozzallo</p>
       <h2>Prendi una bici, vai <em>dove vuoi.</em></h2>
       <p style="margin-top:18px;color:var(--muted-on-dark);font-size:1.12rem">In vacanza a Pozzallo, di passaggio o semplicemente senza bici: noleggia una bicicletta o una e-bike e scopri il lungomare e i dintorni al tuo ritmo.</p>
 
@@ -371,10 +501,11 @@
       <p class="kicker">Chi siamo</p>
       <p class="big-quote">Il negozio di Pozzallo dove la bici è <em>di casa.</em></p>
       <p style="margin-top:22px">
-        Non Solo Bici è il punto di riferimento di Michele Giudice per chi vive le due ruote in ogni forma: per andare al lavoro, per fare sport, per divertirsi o per scoprire il territorio.
+        <strong>Non Solo Bici è un negozio di biciclette di Pozzallo (RG), in Viale Europa snc, gestito da Michele Giudice.</strong>
+        Vende biciclette nuove e usate, e-bike, fat bike, BMX, monopattini, accessori e ricambi; ripara biciclette; noleggia biciclette ed e-bike. E se cerchi un'auto, ne parliamo.
       </p>
       <p>
-        Vendiamo biciclette nuove e usate, ripariamo quelle che hanno già fatto strada, noleggiamo bici ed e-bike — e se cerchi un'auto, ne parliamo. Seguiamo da vicino il mondo del ciclismo: dai caschi e dall'abbigliamento tecnico alle maglie del Non Solo Bike Pro Team.
+        Che tu cerchi una bici per andare al lavoro, per fare sport, per divertirti o per scoprire il territorio, qui trovi un punto di riferimento. Seguiamo da vicino il mondo del ciclismo: dai caschi e dall'abbigliamento tecnico alle maglie del Non Solo Bike Pro Team.
       </p>
 
       <div class="stats">
@@ -404,11 +535,53 @@
   </div>
 </section>
 
+<!-- ======================== DOMANDE FREQUENTI ======================== -->
+<!-- Il testo di domande e risposte deve restare identico a quello del FAQPage nel JSON-LD in <head> -->
+<section class="section section-alt" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="kicker">Domande frequenti</p>
+      <h2>Quello che ci <em>chiedono di più.</em></h2>
+    </div>
+
+    <div class="faq reveal">
+      <details class="faq-item">
+        <summary>Dove si trova Non Solo Bici?</summary>
+        <div class="faq-a"><p>Siamo a Pozzallo, in provincia di Ragusa, in Viale Europa snc (97016), vicino a Modica e Ispica.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Come posso contattarvi o sapere se siete aperti?</summary>
+        <div class="faq-a"><p>Chiama il <a href="tel:+393318380840">331 838 0840</a> oppure il fisso <a href="tel:+390932797162">0932 797162</a>, o scrivici su WhatsApp al 331 838 0840: ti rispondiamo con orari e disponibilità.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Noleggiate biciclette ed e-bike?</summary>
+        <div class="faq-a"><p>Sì, noleggiamo sia biciclette sia e-bike. Dicci quando ti servono e per quanto tempo: ti rispondiamo con disponibilità e tariffa. Puoi scriverci dal <a href="#noleggio">modulo di noleggio</a> del sito, telefonare o passare in negozio.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Quanto costa noleggiare una bici o una e-bike?</summary>
+        <div class="faq-a"><p>La tariffa dipende dal mezzo e dalla durata, per esempio qualche ora, un giorno o una settimana. La comunichiamo su richiesta insieme alla disponibilità.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Riparate tutti i tipi di bicicletta?</summary>
+        <div class="faq-a"><p>Ci occupiamo di manutenzione e riparazione di biciclette da città, MTB, bici da corsa, BMX e bici per ragazzi. Per e-bike e monopattini scrivici o chiamaci prima di portarli, così ti diciamo cosa possiamo fare.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Vendete biciclette nuove e usate?</summary>
+        <div class="faq-a"><p>Sì: biciclette nuove e usate, e-bike (anche pieghevoli), fat bike, BMX e freestyle, monopattini, accessori e ricambi. Le disponibilità cambiano spesso, quindi conviene chiedere prima.</p></div>
+      </details>
+      <details class="faq-item">
+        <summary>Vendete anche auto?</summary>
+        <div class="faq-a"><p>Sì, oltre alle biciclette vendiamo anche auto. Chiedici quali sono disponibili.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ CONTATTI ============================ -->
 <section class="section section-dark" id="contatti">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="kicker">Contatti</p>
+      <p class="kicker">Dove siamo e contatti</p>
       <h2>Vieni a <em>trovarci.</em></h2>
     </div>
 
@@ -417,7 +590,7 @@
         <ul class="info">
           <li>
             <svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg>
-            <div><span class="t">Dove siamo</span><p class="addr" style="margin:4px 0 0">Viale Europa snc<br>97016 Pozzallo (RG)</p></div>
+            <div><span class="t">Dove siamo</span><address class="addr" style="margin:4px 0 0;font-style:normal">Viale Europa snc<br>97016 Pozzallo (RG)</address></div>
           </li>
           <li>
             <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
@@ -464,8 +637,11 @@
       <div>
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
-        Non Solo Bici di Giudice Michele<br>
-        Viale Europa snc, 97016 Pozzallo (RG)
+        <address style="font-style:normal">
+          Non Solo Bici di Giudice Michele<br>
+          Viale Europa snc, 97016 Pozzallo (RG)<br>
+          Tel. <a href="tel:+393318380840">331 838 0840</a> · <a href="tel:+390932797162">0932 797162</a>
+        </address>
       </div>
       <div>
         <b>Esplora</b>
@@ -473,6 +649,7 @@
           <li><a href="#vendita">Vendita</a></li>
           <li><a href="#riparazioni">Riparazioni</a></li>
           <li><a href="#noleggio">Noleggio</a></li>
+          <li><a href="#faq">Domande frequenti</a></li>
           <li><a href="#contatti">Contatti</a></li>
         </ul>
       </div>
@@ -496,6 +673,6 @@
   <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=36.7336496,14.8522478" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Indicazioni</a>
 </nav>
 
-<script src="js/main.js?v=3"></script>
+<script src="js/main.js?v=4"></script>
 </body>
 </html>

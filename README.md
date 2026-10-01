@@ -15,7 +15,11 @@ Poi apri <http://localhost:5174/>. (In Claude Code è già configurato come `non
 
 ## Pubblicazione
 
-**Sito online:** <https://andrei90br.github.io/nonsolobicipozzallo/>
+**Sito online:** <https://nonsolobicipozzallo.it/> (dominio registrato su Aruba; con il dominio attivo l'indirizzo `andrei90br.github.io/nonsolobicipozzallo` rimanda qui).
+
+**Dominio:** i DNS sono gestiti da Aruba (*Gestione DNS e Name Server*). Record in uso: quattro `A` su `@` verso
+`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` e un `CNAME` `www` verso `andrei90br.github.io`.
+I record `MX`/`mx` (posta Aruba) non vanno toccati. Il dominio personalizzato è impostato in *Settings → Pages* del repository.
 
 Il deploy è automatico con GitHub Pages: ogni push su `sito-nuovo` o `main` esegue il workflow
 [`pages.yml`](.github/workflows/pages.yml), che pubblica la cartella `site/` (nessun build). Si può lanciare anche a mano
@@ -23,11 +27,11 @@ da *Actions → Deploy su GitHub Pages → Run workflow*. Le regole dell'ambient
 `main` e `sito-nuovo`: per pubblicare da un altro branch va aggiunto in *Settings → Environments → github-pages*.
 
 **Cache:** GitHub Pages fa tenere i file in cache al browser per 10 minuti. Per questo gli indirizzi di CSS, JS e foto
-in `index.html` e `privacy.html` hanno un numero di versione (`style.css?v=2`): quando modifichi uno di questi file,
-aumenta il numero (`?v=3`…) in tutte le pagine, così pagina e stile arrivano sempre insieme.
+in `index.html` e `privacy.html` hanno un numero di versione (`style.css?v=4`): quando modifichi uno di questi file,
+aumenta il numero (`?v=5`…) in tutte le pagine, così pagina e stile arrivano sempre insieme.
 
-Per usare un dominio proprio: *Settings → Pages → Custom domain*. In alternativa basta caricare **il contenuto di `site/`**
-su qualsiasi hosting statico (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
+In alternativa a GitHub Pages basta caricare **il contenuto di `site/`** su qualsiasi hosting statico
+(Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
 ## Ottimizzazione per smartphone
 
@@ -41,12 +45,34 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 - **WhatsApp:** dai browser interni di Facebook/Instagram, se la nuova scheda è bloccata, si apre nella stessa scheda.
 - Per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
 
+## SEO locale e GEO (ricerca con assistenti AI)
+
+**Nel sito** (già fatto):
+- **Titoli e testi con parole chiave locali:** H1 "Negozio di bici a Pozzallo: Non solo bici.", etichette di sezione tipo "Noleggio bici ed e-bike a Pozzallo", meta description, indirizzo canonico `https://nonsolobicipozzallo.it/`.
+- **Dati strutturati** (JSON-LD in `<head>`): `BicycleStore` con indirizzo, coordinate, telefoni, profili social, catalogo servizi e prodotti, più `WebSite`, `WebPage`, `ImageObject` e `FAQPage`. Non contengono né orari né prezzi, perché non sono noti.
+- **Sezione "Domande frequenti"** (`#faq`): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
+- **"Chi siamo"** apre con una frase-definizione (chi è, dove, cosa fa): è quella che motori di ricerca e assistenti AI tendono a citare.
+- **Posizione:** tag `geo.*`, `<address>` semantico, telefono e indirizzo uguali ovunque (nome, indirizzo e telefono sempre identici).
+- **File per crawler e AI:** `robots.txt` (tutto consentito), `sitemap.xml`, `llms.txt` (scheda riassuntiva in italiano e inglese), pagina `404.html`.
+- Se cambiano indirizzo, telefono o servizi: aggiornare `index.html` (testi e JSON-LD), `llms.txt` e `sitemap.xml` (`lastmod`).
+
+**Fuori dal sito** (lo fa il negozio, pesa più di qualunque modifica al codice):
+1. **Scheda Google Business Profile:** crearla/rivendicarla, categoria "Negozio di biciclette", orari, foto, servizi, telefono e link al sito. È il fattore principale per "negozio bici vicino a me".
+2. **Recensioni Google:** chiederle ai clienti soddisfatti (si può generare un link diretto dalla scheda) e rispondere a tutte.
+3. **Stessi dati ovunque:** nome "Non Solo Bici", indirizzo "Viale Europa snc, 97016 Pozzallo (RG)" e telefono identici su Facebook, Instagram, PagineGialle, Virgilio, BikeTourism.org, Bing Places e Apple Business Connect.
+4. **Link al sito** nella bio di Instagram e nella scheda Facebook.
+5. **Google Search Console** e **Bing Webmaster Tools:** aggiungere il dominio (verifica con record TXT su Aruba) e inviare `https://nonsolobicipozzallo.it/sitemap.xml`.
+6. **Controlli:** [Rich Results Test](https://search.google.com/test/rich-results) e [validator.schema.org](https://validator.schema.org/) sull'indirizzo del sito.
+7. Idea futura: una versione in inglese (Pozzallo ha turisti che cercano "bike rental").
+
 ## Struttura
 
 ```
 site/
-  index.html        pagina unica: hero, servizi, vendita, riparazioni, noleggio, chi siamo, contatti
+  index.html        pagina unica: hero, servizi, vendita, riparazioni, noleggio, chi siamo, FAQ, contatti
   privacy.html      informativa privacy (bozza)
+  404.html          pagina "non trovata" autonoma
+  robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI
   css/style.css     stile (palette rosso/nero/carta dal logo)
   js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
   assets/favicon.svg
@@ -63,7 +89,7 @@ serve.ps1           mini server locale
 | **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
 | **Altre foto** del negozio e dei prodotti | sezioni Vendita, Chi siamo | Per ora c'è solo la foto della vetrina nell'hero (`assets/hero.jpg`); il resto usa icone e illustrazioni SVG. Non sono state copiate foto dai social (diritti d'autore). |
-| **Dominio** | `<head>` di `index.html` | Quando c'è il dominio proprio, aggiorna l'URL assoluto di `og:image` (e in `image` del JSON-LD) e aggiungi `canonical` e `og:url`. |
+| **Se cambia il dominio** | `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` | Gli URL assoluti (`canonical`, `og:url`, `og:image`, JSON-LD) usano `https://nonsolobicipozzallo.it/`. |
 | **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
 
