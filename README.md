@@ -109,6 +109,15 @@ serve.ps1           mini server locale
 | **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
 
+## Recensioni Google
+
+La sezione **"Parlano i clienti"** (`#recensioni`) mostra la valutazione (4,7 su 5, 18 recensioni, ottobre 2026) e tre recensioni
+da 5 stelle riportate parola per parola con nome e iniziale, più i link ufficiali "Leggi tutte" e "Lascia la tua recensione"
+(Place ID `ChIJZT73J0SNERMRA-wFYyzmvQ4`). Il numero compare anche nella prima schermata e in "Chi siamo".
+I numeri sono scritti a mano: vanno aggiornati ogni tanto (in `index.html`, cercando "4,7"). **Non** aggiungere
+`aggregateRating` né `Review` ai dati strutturati: per le attività locali le recensioni "proprie" vanno contro le linee guida
+di Google e possono causare una penalizzazione.
+
 ## Dati di partenza (fonti)
 
 - Facebook *Non Solo Bici | Pozzallo*: servizi (vendita bici nuove/usate, vendita auto, accessori, riparazioni, noleggio bici e e-bike), indirizzo, cellulare 331 838 0840.
