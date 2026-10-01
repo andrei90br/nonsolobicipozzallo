@@ -62,7 +62,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 
 **Nel sito** (già fatto):
 - **Titoli e testi con parole chiave locali:** H1 "Negozio di bici a Pozzallo: Non solo bici.", etichette di sezione tipo "Noleggio bici ed e-bike a Pozzallo", meta description, indirizzo canonico `https://nonsolobicipozzallo.it/`.
-- **Dati strutturati** (JSON-LD in `<head>`): `BicycleStore` con indirizzo, coordinate, telefoni, profili social, catalogo servizi e prodotti, più `WebSite`, `WebPage`, `ImageObject` e `FAQPage`. Non contengono né orari né prezzi, perché non sono noti.
+- **Dati strutturati** (JSON-LD in `<head>`): `BicycleStore` con indirizzo, coordinate, telefoni, profili social, catalogo servizi e prodotti, più `WebSite`, `WebPage`, `ImageObject` e `FAQPage`. Contengono gli orari di apertura (dalla scheda Google, `openingHoursSpecification`) ma non i prezzi, che non sono noti.
 - **Sezione "Domande frequenti"** (`#faq`): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
 - **"Chi siamo"** apre con una frase-definizione (chi è, dove, cosa fa): è quella che motori di ricerca e assistenti AI tendono a citare.
 - **Posizione:** tag `geo.*`, `<address>` semantico, telefono e indirizzo uguali ovunque (nome, indirizzo e telefono sempre identici).
@@ -101,7 +101,7 @@ serve.ps1           mini server locale
 
 | Cosa | Dove | Note |
 |---|---|---|
-| **Orari di apertura** | `index.html`, sezione Contatti | Non pubblici su Facebook/Instagram: al momento il sito invita a chiamare. |
+| **Orari di apertura** (già inseriti) | Contatti, FAQ, JSON-LD, `llms.txt`, `OPENING` in `js/main.js` | Presi dalla scheda Google il 2 ott 2026 (lun–ven 8:30–12:30 e 15:30–19:30, sab 8:30–12:30, dom chiuso). Se cambiano vanno aggiornati in tutti questi punti; nei festivi possono variare. |
 | **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
 | **Altre foto** (officina, riparazioni, noleggio, accessori) | galleria in Vendita, Riparazioni, Noleggio | Ora ci sono bici, e-bike e monopattini (dalla scheda Google). Mancano foto dell'officina, del noleggio e degli accessori. |

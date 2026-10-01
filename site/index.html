@@ -11,9 +11,9 @@
   <meta name="geo.placename" content="Pozzallo">
   <meta name="geo.position" content="36.7336496;14.8522478">
   <meta name="ICBM" content="36.7336496, 14.8522478">
-  <link rel="icon" href="assets/favicon-32.png?v=8" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/logo-192.png?v=8" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=8">
+  <link rel="icon" href="assets/favicon-32.png?v=9" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/logo-192.png?v=9" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=9">
   <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
@@ -32,10 +32,10 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=8">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=8" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=9" fetchpriority="high">
 
-  <!-- Dati strutturati (schema.org). DA COMPLETARE quando disponibili: openingHoursSpecification (orari) e priceRange. dateModified: aggiornare quando cambiano i contenuti -->
+  <!-- Dati strutturati (schema.org). Orari presi dalla scheda Google (2 ott 2026): se cambiano, aggiornare openingHoursSpecification, la sezione Contatti, le FAQ, llms.txt e gli orari in js/main.js. priceRange: non noto. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -105,6 +105,11 @@
         },
         "geo": { "@type": "GeoCoordinates", "latitude": 36.7336496, "longitude": 14.8522478 },
         "hasMap": "https://www.google.com/maps/search/?api=1&query=36.7336496,14.8522478",
+        "openingHoursSpecification": [
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:30", "closes": "12:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "15:30", "closes": "19:30" },
+          { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:30", "closes": "12:30" }
+        ],
         "areaServed": { "@type": "City", "name": "Pozzallo" },
         "founder": { "@type": "Person", "name": "Michele Giudice" },
         "contactPoint": [
@@ -162,8 +167,8 @@
           },
           {
             "@type": "Question",
-            "name": "Come posso contattarvi o sapere se siete aperti?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Chiama il 331 838 0840 oppure il fisso 0932 797162, o scrivici su WhatsApp al 331 838 0840: ti rispondiamo con orari e disponibilità." }
+            "name": "Quali sono gli orari di apertura e come posso contattarvi?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Siamo aperti dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 15:30 alle 19:30, il sabato dalle 8:30 alle 12:30; la domenica siamo chiusi. Per conferme o disponibilità chiama il 331 838 0840 oppure il fisso 0932 797162, o scrivici su WhatsApp al 331 838 0840." }
           },
           {
             "@type": "Question",
@@ -227,7 +232,7 @@
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="#top" aria-label="Non Solo Bici Pozzallo — inizio pagina">
-      <img class="brand-mark" src="assets/logo-192.png?v=8" width="46" height="46" alt="">
+      <img class="brand-mark" src="assets/logo-192.png?v=9" width="46" height="46" alt="">
       <span class="brand-name"><b>Non Solo <em>Bici</em></b><small>Pozzallo</small></span>
     </a>
 
@@ -255,7 +260,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=8" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=9" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -551,7 +556,7 @@
     </div>
 
     <div class="poster reveal" style="--d:.1s" aria-hidden="true">
-      <img class="poster-logo" src="assets/logo.png?v=8" width="600" height="600" alt="" loading="lazy" decoding="async">
+      <img class="poster-logo" src="assets/logo.png?v=9" width="600" height="600" alt="" loading="lazy" decoding="async">
       <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
     </div>
   </div>
@@ -572,8 +577,8 @@
         <div class="faq-a"><p>Siamo a Pozzallo, in provincia di Ragusa, in Viale Europa snc (97016), vicino a Modica e Ispica.</p></div>
       </details>
       <details class="faq-item">
-        <summary>Come posso contattarvi o sapere se siete aperti?</summary>
-        <div class="faq-a"><p>Chiama il <a href="tel:+393318380840">331 838 0840</a> oppure il fisso <a href="tel:+390932797162">0932 797162</a>, o scrivici su WhatsApp al 331 838 0840: ti rispondiamo con orari e disponibilità.</p></div>
+        <summary>Quali sono gli orari di apertura e come posso contattarvi?</summary>
+        <div class="faq-a"><p>Siamo aperti dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 15:30 alle 19:30, il sabato dalle 8:30 alle 12:30; la domenica siamo chiusi. Per conferme o disponibilità chiama il <a href="tel:+393318380840">331 838 0840</a> oppure il fisso <a href="tel:+390932797162">0932 797162</a>, o scrivici su WhatsApp al 331 838 0840.</p></div>
       </details>
       <details class="faq-item">
         <summary>Noleggiate biciclette ed e-bike?</summary>
@@ -626,8 +631,14 @@
             <svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>
             <div>
               <span class="t">Orari</span>
-              <!-- DA COMPLETARE: inserire qui gli orari di apertura reali del negozio -->
-              <p class="sub" style="margin:4px 0 0;font-size:1.05rem;color:#d8d4cb">Per gli orari di apertura chiamaci o scrivici su WhatsApp: ti rispondiamo appena possibile.</p>
+              <!-- Orari dalla scheda Google (2 ott 2026). Se cambiano: aggiornare anche JSON-LD, FAQ, llms.txt e OPENING in js/main.js -->
+              <p class="open-now" id="open-now" hidden></p>
+              <dl class="hours">
+                <div><dt>Lun – Ven</dt><dd>8:30 – 12:30 · 15:30 – 19:30</dd></div>
+                <div><dt>Sabato</dt><dd>8:30 – 12:30</dd></div>
+                <div><dt>Domenica</dt><dd>Chiuso</dd></div>
+              </dl>
+              <p class="sub hours-note">Nei giorni festivi gli orari possono variare: se vieni da lontano, chiamaci per conferma.</p>
             </div>
           </li>
         </ul>
@@ -657,7 +668,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img class="foot-logo" src="assets/logo-192.png?v=8" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
+        <img class="foot-logo" src="assets/logo-192.png?v=9" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
         <address style="font-style:normal">
@@ -711,6 +722,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=8"></script>
+<script src="js/main.js?v=9"></script>
 </body>
 </html>

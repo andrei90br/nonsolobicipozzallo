@@ -200,6 +200,52 @@
     }, { passive: true });
   }
 
+  // --- "Aperto ora / Chiuso ora" (orari abituali, fuso orario italiano) --------
+  // Orari dalla scheda Google (2 ott 2026). Minuti dalla mezzanotte; chiave = giorno (0 = domenica).
+  // Se cambiano, aggiornare anche la sezione Contatti, le FAQ, il JSON-LD e llms.txt.
+  var OPENING = {
+    0: [],
+    1: [[510, 750], [930, 1170]], 2: [[510, 750], [930, 1170]], 3: [[510, 750], [930, 1170]],
+    4: [[510, 750], [930, 1170]], 5: [[510, 750], [930, 1170]],
+    6: [[510, 750]]
+  };
+  var DAYS = ['domenica', 'lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato'];
+  var fmtTime = function (m) { return Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0'); };
+  var openNowEl = $('#open-now');
+  function updateOpenNow() {
+    if (!openNowEl) return;
+    var day, mins;
+    try {
+      var parts = new Intl.DateTimeFormat('en-US', { timeZone: 'Europe/Rome', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date());
+      var get = function (t) { return parts.filter(function (p) { return p.type === t; })[0].value; };
+      day = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 }[get('weekday')];
+      mins = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
+    } catch (err) { openNowEl.hidden = true; return; }
+    var slots = OPENING[day], text, state = 'closed', i, d;
+    for (i = 0; i < slots.length; i++) {
+      if (mins >= slots[i][0] && mins < slots[i][1]) { state = 'open'; text = 'Aperto ora · chiude alle ' + fmtTime(slots[i][1]); break; }
+    }
+    if (state === 'closed') {
+      for (i = 0; i < slots.length; i++) {
+        if (mins < slots[i][0]) { text = 'Chiuso ora · riapre oggi alle ' + fmtTime(slots[i][0]); break; }
+      }
+    }
+    if (!text) {
+      for (d = 1; d <= 7; d++) {
+        var nd = (day + d) % 7;
+        if (OPENING[nd].length) {
+          text = 'Chiuso ora · riapre ' + (d === 1 ? 'domani' : DAYS[nd]) + ' alle ' + fmtTime(OPENING[nd][0][0]);
+          break;
+        }
+      }
+    }
+    openNowEl.textContent = text;
+    openNowEl.setAttribute('data-state', state);
+    openNowEl.hidden = false;
+  }
+  updateOpenNow();
+  setInterval(updateOpenNow, 60000);
+
   // --- Comparsa allo scroll -------------------------------------------------
   var items = $$('.reveal');
   if ('IntersectionObserver' in window) {
