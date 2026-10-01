@@ -11,9 +11,9 @@
   <meta name="geo.placename" content="Pozzallo">
   <meta name="geo.position" content="36.7336496;14.8522478">
   <meta name="ICBM" content="36.7336496, 14.8522478">
-  <link rel="icon" href="assets/favicon-32.png?v=7" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/logo-192.png?v=7" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=7">
+  <link rel="icon" href="assets/favicon-32.png?v=8" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/logo-192.png?v=8" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=8">
   <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
@@ -32,8 +32,8 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=7">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=7" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=8" fetchpriority="high">
 
   <!-- Dati strutturati (schema.org). DA COMPLETARE quando disponibili: openingHoursSpecification (orari) e priceRange. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
@@ -84,7 +84,15 @@
           "height": 600,
           "caption": "Logo di Non Solo Bici"
         },
-        "image": { "@id": "https://nonsolobicipozzallo.it/#foto" },
+        "image": [
+          { "@id": "https://nonsolobicipozzallo.it/#foto" },
+          "https://nonsolobicipozzallo.it/assets/gallery/bici-nuove-esposizione-1400.jpg",
+          "https://nonsolobicipozzallo.it/assets/gallery/bici-usate-davanti-al-negozio-1400.jpg",
+          "https://nonsolobicipozzallo.it/assets/gallery/ebike-mountain-bike-ricambi-1400.jpg",
+          "https://nonsolobicipozzallo.it/assets/gallery/ebike-pieghevoli-ruote-fat-1400.jpg",
+          "https://nonsolobicipozzallo.it/assets/gallery/monopattini-elettrici-esposizione-1400.jpg",
+          "https://nonsolobicipozzallo.it/assets/gallery/monopattino-elettrico-fuoristrada-1400.jpg"
+        ],
         "description": "Negozio di biciclette a Pozzallo: vendita di biciclette nuove e usate, e-bike, fat bike, accessori e ricambi; officina per riparazioni e assistenza per bici elettriche, scooter elettrici e monopattini elettrici; noleggio di biciclette ed e-bike.",
         "telephone": ["+393318380840", "+390932797162"],
         "address": {
@@ -206,6 +214,7 @@
   <symbol id="i-fb" viewBox="0 0 24 24"><path d="M14 21v-7.5h2.5l.5-3H14V8.8c0-.9.4-1.3 1.3-1.3H17V4.6A18 18 0 0 0 14.6 4.5c-2.3 0-3.6 1.4-3.6 3.8v2.2H8.5v3H11V21z"/></symbol>
   <symbol id="i-nav" viewBox="0 0 24 24"><path d="M3 11.5 21 3l-8.5 18-2-7.5z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5 9.8 17 19 7.5"/></symbol>
   <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
@@ -218,7 +227,7 @@
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="#top" aria-label="Non Solo Bici Pozzallo — inizio pagina">
-      <img class="brand-mark" src="assets/logo-192.png?v=7" width="46" height="46" alt="">
+      <img class="brand-mark" src="assets/logo-192.png?v=8" width="46" height="46" alt="">
       <span class="brand-name"><b>Non Solo <em>Bici</em></b><small>Pozzallo</small></span>
     </a>
 
@@ -246,7 +255,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=7" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=8" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -334,31 +343,31 @@
         <svg class="ico" aria-hidden="true"><use href="#i-bike"/></svg>
         <h3>Bici nuove</h3>
         <p>Modelli per ogni uso e ogni budget, dalla bici da passeggio a quella per allenarsi.</p>
-        <a class="wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni sulle bici nuove.">Chiedi info <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#galleria-bici" data-show="bici">Vedi le foto <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="cat reveal" style="--d:.05s">
         <svg class="ico" aria-hidden="true"><use href="#i-bike"/></svg>
         <h3>Bici usate</h3>
         <p>Un modo intelligente per pedalare spendendo meno. L'usato disponibile cambia di continuo.</p>
-        <a class="wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni sulle bici usate disponibili.">Cosa c'è oggi? <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#galleria-bici" data-show="bici">Vedi le foto <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="cat reveal" style="--d:.1s">
         <svg class="ico" aria-hidden="true"><use href="#i-ebike"/></svg>
         <h3>E-bike</h3>
         <p>Pedalata assistita per salite, distanze e giornate di vento. Anche nella versione pieghevole.</p>
-        <a class="wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni sulle e-bike.">Chiedi info <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#galleria-ebike" data-show="ebike">Vedi le foto <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="cat reveal">
         <svg class="ico" aria-hidden="true"><use href="#i-fat"/></svg>
         <h3>Fat bike</h3>
         <p>Ruote extra larghe per sabbia, sterrato e tanto divertimento.</p>
-        <a class="wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni sulle fat bike.">Chiedi info <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#galleria-ebike" data-show="ebike">Vedi le foto <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="cat reveal" style="--d:.1s">
         <svg class="ico" aria-hidden="true"><use href="#i-scooter"/></svg>
         <h3>Assistenza mobilità elettrica</h3>
         <p>Assistenza per bici elettriche, scooter elettrici e monopattini elettrici.</p>
-        <a class="wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Vorrei informazioni sull'assistenza per bici elettriche, scooter elettrici o monopattini elettrici.">Chiedi info <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a href="#galleria-monopattini" data-show="monopattini">Vedi le foto <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
       </article>
       <article class="cat reveal">
         <svg class="ico" aria-hidden="true"><use href="#i-helmet"/></svg>
@@ -369,6 +378,40 @@
     </div>
 
     <p class="note"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>I prezzi dipendono dal modello e dalla disponibilità: contattaci per un'indicazione o passa direttamente in negozio.</span></p>
+
+    <!-- Galleria foto: i filtri e il visualizzatore sono in js/main.js. Per aggiungere una foto copia un <li> e carica le due misure in assets/gallery/ -->
+    <div class="gallery" id="galleria">
+      <div class="gallery-head">
+        <h3>Guarda cosa trovi in negozio</h3>
+        <p>Foto del negozio e di alcuni mezzi in esposizione. Tocca una foto per ingrandirla.</p>
+        <div class="filters" role="group" aria-label="Filtra le foto per categoria">
+          <button type="button" class="filter is-active" data-filter="all" aria-pressed="true">Tutte</button>
+          <button type="button" class="filter" data-filter="bici" aria-pressed="false">Bici</button>
+          <button type="button" class="filter" data-filter="ebike" aria-pressed="false">E-bike</button>
+          <button type="button" class="filter" data-filter="monopattini" aria-pressed="false">Monopattini elettrici</button>
+        </div>
+      </div>
+
+      <ul class="photos" id="photos">
+        <li class="photo-item" data-cat="bici"><button type="button" class="photo" data-full="assets/gallery/bici-nuove-esposizione-1400.jpg" aria-label="Ingrandisci la foto: Biciclette nuove in esposizione nel negozio di Pozzallo"><img src="assets/gallery/bici-nuove-esposizione-640.jpg" width="640" height="480" alt="Biciclette nuove in esposizione nel negozio di Pozzallo" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="monopattini"><button type="button" class="photo" data-full="assets/gallery/monopattini-elettrici-esposizione-1400.jpg" aria-label="Ingrandisci la foto: Monopattini elettrici esposti nel negozio"><img src="assets/gallery/monopattini-elettrici-esposizione-640.jpg" width="480" height="640" alt="Monopattini elettrici esposti nel negozio" loading="lazy" decoding="async" style="--pos:40% 72%"></button></li>
+        <li class="photo-item" data-cat="ebike"><button type="button" class="photo" data-full="assets/gallery/ebike-mountain-bike-ricambi-1400.jpg" aria-label="Ingrandisci la foto: E-bike mountain bike accanto al reparto ricambi e accessori"><img src="assets/gallery/ebike-mountain-bike-ricambi-640.jpg" width="640" height="480" alt="E-bike mountain bike accanto al reparto ricambi e accessori" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="bici"><button type="button" class="photo" data-full="assets/gallery/bici-usate-davanti-al-negozio-1400.jpg" aria-label="Ingrandisci la foto: Biciclette usate esposte davanti al negozio, in Viale Europa"><img src="assets/gallery/bici-usate-davanti-al-negozio-640.jpg" width="640" height="480" alt="Biciclette usate esposte davanti al negozio, in Viale Europa" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="monopattini"><button type="button" class="photo" data-full="assets/gallery/monopattino-elettrico-fuoristrada-1400.jpg" aria-label="Ingrandisci la foto: Monopattino elettrico con ruote tassellate e sospensioni"><img src="assets/gallery/monopattino-elettrico-fuoristrada-640.jpg" width="567" height="640" alt="Monopattino elettrico con ruote tassellate e sospensioni" loading="lazy" decoding="async" style="--pos:50% 68%"></button></li>
+        <li class="photo-item" data-cat="ebike"><button type="button" class="photo" data-full="assets/gallery/ebike-e-bici-citta-esposizione-1400.jpg" aria-label="Ingrandisci la foto: E-bike e biciclette da città in esposizione"><img src="assets/gallery/ebike-e-bici-citta-esposizione-640.jpg" width="480" height="640" alt="E-bike e biciclette da città in esposizione" loading="lazy" decoding="async" style="--pos:50% 62%"></button></li>
+        <li class="photo-item" data-cat="bici"><button type="button" class="photo" data-full="assets/gallery/bici-nuove-e-depoca-parete-1400.jpg" aria-label="Ingrandisci la foto: Biciclette in esposizione, con modelli d'epoca appesi alla parete"><img src="assets/gallery/bici-nuove-e-depoca-parete-640.jpg" width="640" height="640" alt="Biciclette in esposizione, con modelli d'epoca appesi alla parete" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="monopattini"><button type="button" class="photo" data-full="assets/gallery/monopattino-elettrico-racer-1400.jpg" aria-label="Ingrandisci la foto: Monopattino elettrico, dettaglio del manubrio e della pedana"><img src="assets/gallery/monopattino-elettrico-racer-640.jpg" width="405" height="640" alt="Monopattino elettrico, dettaglio del manubrio e della pedana" loading="lazy" decoding="async" style="--pos:50% 92%"></button></li>
+        <li class="photo-item" data-cat="ebike"><button type="button" class="photo" data-full="assets/gallery/ebike-pieghevoli-ruote-fat-1400.jpg" aria-label="Ingrandisci la foto: E-bike pieghevoli con ruote fat"><img src="assets/gallery/ebike-pieghevoli-ruote-fat-640.jpg" width="640" height="453" alt="E-bike pieghevoli con ruote fat" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="bici"><button type="button" class="photo" data-full="assets/gallery/bici-usate-tandem-bici-da-corsa-1400.jpg" aria-label="Ingrandisci la foto: Biciclette usate in negozio, con un tandem e una bici da corsa"><img src="assets/gallery/bici-usate-tandem-bici-da-corsa-640.jpg" width="640" height="480" alt="Biciclette usate in negozio, con un tandem e una bici da corsa" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="monopattini"><button type="button" class="photo" data-full="assets/gallery/monopattino-elettrico-dettaglio-1400.jpg" aria-label="Ingrandisci la foto: Monopattino elettrico, pedana e faro posteriore"><img src="assets/gallery/monopattino-elettrico-dettaglio-640.jpg" width="640" height="480" alt="Monopattino elettrico, pedana e faro posteriore" loading="lazy" decoding="async"></button></li>
+        <li class="photo-item" data-cat="bici"><button type="button" class="photo" data-full="assets/gallery/bici-citta-in-fila-1400.jpg" aria-label="Ingrandisci la foto: Biciclette da città in fila nel negozio"><img src="assets/gallery/bici-citta-in-fila-640.jpg" width="640" height="640" alt="Biciclette da città in fila nel negozio" loading="lazy" decoding="async"></button></li>
+      </ul>
+
+      <div class="gallery-cta">
+        <p>Ti piace qualcosa? Scrivici: ti diciamo cosa abbiamo disponibile.</p>
+        <a class="btn btn-wa wa-link" href="https://wa.me/393318380840" data-msg="Ciao! Ho visto le foto sul vostro sito e vorrei informazioni."><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Chiedi info su WhatsApp</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -508,7 +551,7 @@
     </div>
 
     <div class="poster reveal" style="--d:.1s" aria-hidden="true">
-      <img class="poster-logo" src="assets/logo.png?v=7" width="600" height="600" alt="" loading="lazy" decoding="async">
+      <img class="poster-logo" src="assets/logo.png?v=8" width="600" height="600" alt="" loading="lazy" decoding="async">
       <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
     </div>
   </div>
@@ -614,7 +657,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img class="foot-logo" src="assets/logo-192.png?v=7" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
+        <img class="foot-logo" src="assets/logo-192.png?v=8" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
         <address style="font-style:normal">
@@ -653,6 +696,21 @@
   <a class="dir" href="https://www.google.com/maps/dir/?api=1&destination=36.7336496,14.8522478" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-nav"/></svg>Indicazioni</a>
 </nav>
 
-<script src="js/main.js?v=7"></script>
+<!-- Visualizzatore foto a schermo intero (galleria) -->
+<dialog class="lightbox" id="lightbox" aria-label="Foto ingrandita">
+  <button type="button" class="lb-close" aria-label="Chiudi"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Foto precedente"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  <figure class="lb-fig">
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-next" aria-label="Foto successiva"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+  <div class="lb-foot">
+    <span id="lb-count" aria-live="polite"></span>
+    <a id="lb-wa" class="btn btn-wa btn-sm" href="https://wa.me/393318380840" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>Chiedi info su questa foto</a>
+  </div>
+</dialog>
+
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

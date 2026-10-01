@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://nonsolobicipozzallo.it/</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-02</lastmod>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/bici-nuove-esposizione-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/bici-usate-davanti-al-negozio-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/bici-nuove-e-depoca-parete-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/bici-usate-tandem-bici-da-corsa-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/bici-citta-in-fila-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/ebike-mountain-bike-ricambi-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/ebike-e-bici-citta-esposizione-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/ebike-pieghevoli-ruote-fat-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/monopattini-elettrici-esposizione-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/monopattino-elettrico-fuoristrada-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/monopattino-elettrico-racer-1400.jpg</image:loc></image:image>
+    <image:image><image:loc>https://nonsolobicipozzallo.it/assets/gallery/monopattino-elettrico-dettaglio-1400.jpg</image:loc></image:image>
   </url>
 </urlset>

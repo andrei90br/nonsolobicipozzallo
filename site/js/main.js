@@ -125,6 +125,81 @@
     ph.remove();
   });
 
+  // --- Galleria foto: filtri per categoria + visualizzatore a schermo intero ---
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var photoItems = $$('.photo-item');
+  var filterBtns = $$('.filter');
+  function applyFilter(f) {
+    photoItems.forEach(function (li) { li.hidden = !(f === 'all' || li.getAttribute('data-cat') === f); });
+    filterBtns.forEach(function (b) {
+      var on = b.getAttribute('data-filter') === f;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', String(on));
+    });
+  }
+  filterBtns.forEach(function (b) { b.addEventListener('click', function () { applyFilter(b.getAttribute('data-filter')); }); });
+  function goToGallery(f) {
+    applyFilter(f);
+    var g = $('#galleria');
+    if (g) g.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }
+  // dalle card di Vendita: <a href="#galleria-bici" data-show="bici">
+  $$('[data-show]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      goToGallery(a.getAttribute('data-show'));
+      if (history.replaceState) history.replaceState(null, '', '#galleria-' + a.getAttribute('data-show'));
+    });
+  });
+  var hashMatch = /^#galleria-(bici|ebike|monopattini)$/.exec(window.location.hash);
+  if (hashMatch) window.addEventListener('load', function () { goToGallery(hashMatch[1]); });
+
+  var lb = $('#lightbox');
+  if (lb && photoItems.length) {
+    var lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbCount = $('#lb-count'), lbWa = $('#lb-wa');
+    var shown = [], pos = 0;
+    var preload = function (i) { if (shown[i]) { var im = new Image(); im.src = shown[i].getAttribute('data-full'); } };
+    var render = function () {
+      var btn = shown[pos], thumb = $('img', btn);
+      lbImg.src = btn.getAttribute('data-full');
+      lbImg.alt = thumb.alt;
+      lbCap.textContent = thumb.alt;
+      lbCount.textContent = (pos + 1) + ' / ' + shown.length;
+      lbWa.href = waUrl('Ciao! Ho visto questa foto sul vostro sito: ' + thumb.alt + '. Vorrei informazioni.');
+      if (shown.length > 1) { preload((pos + 1) % shown.length); preload((pos - 1 + shown.length) % shown.length); }
+    };
+    var step = function (d) { if (shown.length > 1) { pos = (pos + d + shown.length) % shown.length; render(); } };
+    var closeLb = function () { if (lb.open) lb.close(); };
+    $$('.photo').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (typeof lb.showModal !== 'function') { window.open(btn.getAttribute('data-full'), '_blank'); return; }
+        shown = photoItems.filter(function (li) { return !li.hidden; }).map(function (li) { return $('.photo', li); });
+        pos = shown.indexOf(btn);
+        render();
+        document.documentElement.classList.add('lb-open');
+        lb.showModal();
+      });
+    });
+    $('.lb-close', lb).addEventListener('click', closeLb);
+    $('.lb-prev', lb).addEventListener('click', function () { step(-1); });
+    $('.lb-next', lb).addEventListener('click', function () { step(1); });
+    lb.addEventListener('close', function () { document.documentElement.classList.remove('lb-open'); lbImg.removeAttribute('src'); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });   // tocco sullo sfondo
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    });
+    // scorrimento con il dito: trascina a sinistra/destra
+    var tx = null, ty = null;
+    lb.addEventListener('touchstart', function (e) { tx = e.changedTouches[0].clientX; ty = e.changedTouches[0].clientY; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (tx === null) return;
+      var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+      tx = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+  }
+
   // --- Comparsa allo scroll -------------------------------------------------
   var items = $$('.reveal');
   if ('IntersectionObserver' in window) {

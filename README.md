@@ -33,6 +33,19 @@ aumenta il numero (`?v=5`…) in tutte le pagine, così pagina e stile arrivano 
 In alternativa a GitHub Pages basta caricare **il contenuto di `site/`** su qualsiasi hosting statico
 (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
+## Galleria foto
+
+Nella sezione **Vendita** c'è la galleria "Guarda cosa trovi in negozio": filtri (Tutte / Bici / E-bike / Monopattini elettrici),
+griglia di miniature e visualizzatore a schermo intero (frecce, tastiera, scorrimento con il dito, pulsante WhatsApp con il
+nome della foto). Toccando le card di Vendita ("Vedi le foto") si va alla galleria già filtrata; l'indirizzo `/#galleria-bici`,
+`/#galleria-ebike`, `/#galleria-monopattini` apre direttamente un filtro.
+
+Le foto sono quelle caricate sulla **scheda Google** del negozio (12 scelte, ottimizzate, senza dati di posizione).
+Per aggiungerne una: carica in `site/assets/gallery/` due misure (`nome-640.jpg` per la miniatura, lato lungo ~1400 px
+`nome-1400.jpg` per l'ingrandimento), copia un `<li class="photo-item" data-cat="…">` in `site/index.html` (categorie:
+`bici`, `ebike`, `monopattini`) e aggiungi la foto a `site/sitemap.xml`. Nelle foto non devono comparire scritte con servizi
+non offerti (nella foto delle e-bike pieghevoli lo striscione con "vendita bici e auto" è stato tagliato).
+
 ## Ottimizzazione per smartphone
 
 Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/css/style.css`):
@@ -78,6 +91,7 @@ site/
   assets/logo.png          logo ufficiale (600×600, sfondo bianco): sezione "Chi siamo" e dati per Google
   assets/logo-192.png      logo piccolo: testata e footer; usato anche come icona della scheda (192×192)
   assets/favicon-32.png  assets/apple-touch-icon.png    icone della scheda del browser e per iPhone
+  assets/gallery/   12 foto della galleria, ciascuna in due misure (-640 miniatura, -1400 ingrandimento)
   assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720)
   assets/og.jpg     stessa foto ritagliata 1200×630 per le anteprime social (WhatsApp, Facebook)
 serve.ps1           mini server locale
@@ -90,7 +104,7 @@ serve.ps1           mini server locale
 | **Orari di apertura** | `index.html`, sezione Contatti | Non pubblici su Facebook/Instagram: al momento il sito invita a chiamare. |
 | **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
-| **Altre foto** del negozio e dei prodotti | sezioni Vendita, Chi siamo | Per ora c'è solo la foto della vetrina nell'hero (`assets/hero.jpg`); il resto usa icone e illustrazioni SVG. Non sono state copiate foto dai social (diritti d'autore). |
+| **Altre foto** (officina, riparazioni, noleggio, accessori) | galleria in Vendita, Riparazioni, Noleggio | Ora ci sono bici, e-bike e monopattini (dalla scheda Google). Mancano foto dell'officina, del noleggio e degli accessori. |
 | **Se cambia il dominio** | `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` | Gli URL assoluti (`canonical`, `og:url`, `og:image`, JSON-LD) usano `https://nonsolobicipozzallo.it/`. |
 | **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
