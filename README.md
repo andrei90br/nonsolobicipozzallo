@@ -75,7 +75,9 @@ site/
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI
   css/style.css     stile (palette rosso/nero/carta dal logo)
   js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
-  assets/favicon.svg
+  assets/logo.png          logo ufficiale (600×600, sfondo bianco): sezione "Chi siamo" e dati per Google
+  assets/logo-192.png      logo piccolo: testata e footer; usato anche come icona della scheda (192×192)
+  assets/favicon-32.png  assets/apple-touch-icon.png    icone della scheda del browser e per iPhone
   assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720)
   assets/og.jpg     stessa foto ritagliata 1200×630 per le anteprime social (WhatsApp, Facebook)
 serve.ps1           mini server locale
