@@ -33,6 +33,13 @@ aumenta il numero (`?v=5`…) in tutte le pagine, così pagina e stile arrivano 
 In alternativa a GitHub Pages basta caricare **il contenuto di `site/`** su qualsiasi hosting statico
 (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
 
+## Pagina compatta
+
+Il sito è stato accorciato (2 ott 2026) mantenendo lo stesso aspetto: da ~13.900 a ~8.200 px su telefono e da ~11.200 a ~7.900 px su desktop.
+**Riparazione e noleggio** stanno nella stessa sezione (`#officina`) con due schede (Riparazione / Noleggio); i link `#riparazioni` e
+`#noleggio` (menu, card dei servizi, footer, FAQ) aprono la scheda giusta. Senza JavaScript le due schede sono visibili una sotto l'altra.
+La galleria parte con 6 foto (8 su desktop) e un pulsante "Mostra tutte"; su telefono le card di Vendita sono in due colonne.
+
 ## Galleria foto
 
 Nella sezione **Vendita** c'è la galleria "Guarda cosa trovi in negozio": filtri (Tutte / Bici / E-bike / Monopattini elettrici),
@@ -82,7 +89,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 
 ```
 site/
-  index.html        pagina unica: hero, servizi, vendita, riparazioni, noleggio, chi siamo, FAQ, contatti
+  index.html        pagina unica: hero, servizi, vendita (+ galleria), officina e noleggio (due schede), chi siamo, recensioni, FAQ, contatti
   privacy.html      informativa privacy (bozza)
   404.html          pagina "non trovata" autonoma
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI

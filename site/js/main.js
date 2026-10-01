@@ -129,14 +129,32 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var photoItems = $$('.photo-item');
   var filterBtns = $$('.filter');
+  // Con "Tutte" la galleria parte compatta (6 foto, 8 su schermi larghi) e si espande col pulsante.
+  var moreBtn = $('#photos-more');
+  var currentFilter = 'all', expanded = false;
+  var collapsedLimit = function () { return window.matchMedia('(min-width: 980px)').matches ? 8 : 6; };
+  function refreshPhotos() {
+    var matches = photoItems.filter(function (li) { return currentFilter === 'all' || li.getAttribute('data-cat') === currentFilter; });
+    var limit = (currentFilter === 'all' && !expanded) ? collapsedLimit() : matches.length;
+    photoItems.forEach(function (li) { li.hidden = matches.indexOf(li) === -1 || matches.indexOf(li) >= limit; });
+    if (moreBtn) {
+      moreBtn.hidden = !(currentFilter === 'all' && !expanded && matches.length > limit);
+      moreBtn.textContent = 'Mostra tutte le ' + matches.length + ' foto';
+    }
+  }
   function applyFilter(f) {
-    photoItems.forEach(function (li) { li.hidden = !(f === 'all' || li.getAttribute('data-cat') === f); });
+    currentFilter = f;
+    if (f !== 'all') expanded = false;
+    refreshPhotos();
     filterBtns.forEach(function (b) {
       var on = b.getAttribute('data-filter') === f;
       b.classList.toggle('is-active', on);
       b.setAttribute('aria-pressed', String(on));
     });
   }
+  if (moreBtn) moreBtn.addEventListener('click', function () { expanded = true; refreshPhotos(); });
+  window.addEventListener('resize', function () { if (!expanded && currentFilter === 'all') refreshPhotos(); });
+  refreshPhotos();
   filterBtns.forEach(function (b) { b.addEventListener('click', function () { applyFilter(b.getAttribute('data-filter')); }); });
   function goToGallery(f) {
     applyFilter(f);
@@ -198,6 +216,50 @@
       tx = null;
       if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) step(dx < 0 ? 1 : -1);
     }, { passive: true });
+  }
+
+  // --- Officina e noleggio: due schede nella stessa sezione -------------------
+  // I link a #riparazioni e #noleggio (menu, card dei servizi, footer, FAQ) aprono la scheda giusta.
+  var tabBtns = $$('.tab');
+  var tabPanels = $$('.tabpanel');
+  function showTab(name, focus) {
+    tabBtns.forEach(function (t) {
+      var on = t.id === 'tab-' + name;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on && focus) t.focus();
+    });
+    tabPanels.forEach(function (p) {
+      var on = p.id === name;
+      p.classList.toggle('is-active', on);
+      if (on) $$('.reveal', p).forEach(function (r) { r.classList.add('in'); });   // gli elementi nascosti non erano mai stati "visti" dallo scroll
+    });
+  }
+  function goToTab(name) {
+    showTab(name);
+    var s = $('#officina');
+    if (s) s.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }
+  if (tabBtns.length) {
+    tabBtns.forEach(function (t, i) {
+      t.addEventListener('click', function () { showTab(t.id.replace('tab-', '')); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var next = tabBtns[(i + (e.key === 'ArrowRight' ? 1 : tabBtns.length - 1)) % tabBtns.length];
+        showTab(next.id.replace('tab-', ''), true);
+      });
+    });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href="#riparazioni"], a[href="#noleggio"]');
+      if (!a) return;
+      e.preventDefault();
+      var name = a.getAttribute('href').slice(1);
+      goToTab(name);
+      if (history.replaceState) history.replaceState(null, '', '#' + name);
+    });
+    if (window.location.hash === '#noleggio' || window.location.hash === '#riparazioni') {
+      window.addEventListener('load', function () { goToTab(window.location.hash.slice(1)); });
+    }
   }
 
   // --- "Aperto ora / Chiuso ora" (orari abituali, fuso orario italiano) --------
