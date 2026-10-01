@@ -808,16 +808,62 @@ a.stat { text-decoration: none; color: inherit; display: block; }
   .reviews-top { gap: 10px; margin-bottom: 14px; }
 }
 
-/* ---------- FAQ piccola, in fondo alla pagina ---------- */
-.faq-section { padding: clamp(26px, 4vw, 44px) 0; }
-.faq-head { margin-bottom: 14px; }
-.faq-section .kicker { margin-bottom: 4px; font-size: .85rem; }
-.faq-section .faq-title { font-size: clamp(1.5rem, 3.2vw, 2rem); line-height: 1; }
+/* ---------- FAQ a comparsa (pop-up) in fondo alla pagina ---------- */
+.faq-section { padding: 18px 0; }
+.faq-pop { position: relative; width: fit-content; max-width: 100%; margin-inline: auto; }
+.faq-trigger {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 52px; max-width: 100%; padding: 8px 22px 8px 9px;
+  border: 1.5px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+}
+.faq-trigger::after {
+  content: ""; flex: none; width: 10px; height: 10px; margin: 3px 0 0 2px;
+  border-right: 3px solid var(--red); border-bottom: 3px solid var(--red); transform: rotate(-135deg); transition: transform .2s;
+}
+.faq-pop.open .faq-trigger::after { transform: rotate(45deg); margin-top: -4px; }
+.faq-q { display: grid; place-items: center; flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: #fff; font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1; }
+.faq-label { font-family: var(--display); font-variation-settings: "wdth" 85; font-weight: 700; font-size: 1.2rem; letter-spacing: .04em; text-transform: uppercase; }
+.faq-hint { color: var(--muted); font-size: .88rem; font-weight: 500; }
+.faq-hint-touch { display: none; }
+@media (hover: none) { .faq-hint-hover { display: none; } .faq-hint-touch { display: inline; } }
+
+/* il riquadro: si apre sopra il pulsante (padding-bottom = "ponte" che tiene attivo l'hover) */
+.faq-panel {
+  --tx: -50%; --ty: 8px;
+  position: absolute; z-index: 40; left: 50%; bottom: 100%; width: min(940px, calc(100vw - 2 * var(--gutter))); padding-bottom: 12px;
+  opacity: 0; visibility: hidden; transform: translate(var(--tx), var(--ty));
+  transition: opacity .16s ease, transform .16s ease, visibility 0s linear .16s;
+}
+.faq-box { max-height: var(--faq-max, min(64vh, 560px)); overflow-y: auto; overscroll-behavior: contain; padding: 12px 14px 14px; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .5); }
+.faq-box-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.faq-section .faq-title { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1; }
+.faq-section .faq-title em { font-style: normal; color: var(--red); }
+.faq-close { flex: none; display: grid; place-items: center; width: 44px; height: 44px; margin: -6px -6px -6px 0; border: 0; border-radius: 12px; background: transparent; color: var(--ink); cursor: pointer; }
+.faq-close .ico { width: 22px; height: 22px; }
+.faq-pop.down .faq-panel { --ty: -8px; top: 100%; bottom: auto; padding: 12px 0 0; }
+.faq-pop.open .faq-panel {
+  --ty: 0px; opacity: 1; visibility: visible; transition: opacity .16s ease, transform .16s ease, visibility 0s;
+}
+@media (hover: hover) {
+  .faq-pop:hover .faq-panel { --ty: 0px; opacity: 1; visibility: visible; transition: opacity .16s ease, transform .16s ease, visibility 0s; }
+  .faq-pop:hover .faq-trigger::after { transform: rotate(45deg); margin-top: -4px; }
+  .faq-trigger:hover { border-color: var(--red); }
+  .faq-close:hover { background: var(--paper-2); }
+}
+.faq-pop:has(:focus-visible) .faq-panel { --ty: 0px; opacity: 1; visibility: visible; transition: opacity .16s ease, transform .16s ease, visibility 0s; }
 .faq-section .faq { gap: 8px; }
 .faq-section .faq-item { border-radius: 12px; }
 .faq-section .faq-item summary { min-height: 46px; padding: 8px 14px; font-size: .97rem; }
 .faq-section .faq-a { padding: 0 14px 12px; font-size: .95rem; }
+
+/* telefono / schermo tattile: il riquadro è un foglio fisso sopra la barra azioni */
+@media (hover: none), (max-width: 759px) {
+  .faq-panel { --tx: 0px; position: fixed; left: 10px; right: 10px; bottom: 84px; width: auto; padding-bottom: 0; }
+  .faq-box { max-height: calc(100vh - 84px - 90px); max-height: calc(100dvh - 84px - 90px); }
+}
 @media (max-width: 599px) {
-  .faq-section { padding: 26px 0 22px; }
+  .faq-section { padding: 14px 0; }
+  .faq-trigger { gap: 10px; padding-right: 16px; }
+  .faq-label { font-size: 1.1rem; }
+  .faq-hint { display: none; }
   .faq-section .faq-item summary { font-size: .95rem; }
 }

@@ -11,9 +11,9 @@
   <meta name="geo.placename" content="Pozzallo">
   <meta name="geo.position" content="36.7336496;14.8522478">
   <meta name="ICBM" content="36.7336496, 14.8522478">
-  <link rel="icon" href="assets/favicon-32.png?v=16" type="image/png" sizes="32x32">
-  <link rel="icon" href="assets/logo-192.png?v=16" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=16">
+  <link rel="icon" href="assets/favicon-32.png?v=20" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/logo-192.png?v=20" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=20">
   <link rel="canonical" href="https://nonsolobicipozzallo.it/">
 
   <meta property="og:type" content="website">
@@ -32,8 +32,8 @@
 
   <script>document.documentElement.classList.add('js');</script>
   <!-- ?v=… forza il browser a riscaricare i file quando cambiano (GitHub Pages li tiene in cache 10 minuti): aumentarlo a ogni modifica di CSS/JS/foto -->
-  <link rel="stylesheet" href="css/style.css?v=16">
-  <link rel="preload" as="image" href="assets/hero.jpg?v=16" fetchpriority="high">
+  <link rel="stylesheet" href="css/style.css?v=20">
+  <link rel="preload" as="image" href="assets/hero.jpg?v=20" fetchpriority="high">
 
   <!-- Dati strutturati (schema.org). Orari presi dalla scheda Google (2 ott 2026): se cambiano, aggiornare openingHoursSpecification, la sezione Contatti, le FAQ, llms.txt e gli orari in js/main.js. priceRange: non noto. dateModified: aggiornare quando cambiano i contenuti -->
   <script type="application/ld+json">
@@ -232,7 +232,7 @@
 <header class="site-header">
   <div class="wrap header-in">
     <a class="brand" href="#top" aria-label="Non Solo Bici Pozzallo — inizio pagina">
-      <img class="brand-mark" src="assets/logo-192.png?v=16" width="46" height="46" alt="">
+      <img class="brand-mark" src="assets/logo-192.png?v=20" width="46" height="46" alt="">
       <span class="brand-name"><b>Non Solo <em>Bici</em></b><small>Pozzallo</small></span>
     </a>
 
@@ -259,7 +259,7 @@
 
 <!-- ============================== HERO ============================== -->
 <section class="hero" id="top">
-  <img class="hero-bg" src="assets/hero.jpg?v=16" width="1278" height="720" fetchpriority="high"
+  <img class="hero-bg" src="assets/hero.jpg?v=20" width="1278" height="720" fetchpriority="high"
        alt="La vetrina di Non Solo Bici in Viale Europa a Pozzallo, con biciclette ed e-bike in esposizione">
   <div class="wrap hero-grid">
     <div class="hero-copy">
@@ -569,7 +569,7 @@
       </div>
 
       <div class="poster reveal" style="--d:.1s" aria-hidden="true">
-        <img class="poster-logo" src="assets/logo.png?v=16" width="600" height="600" alt="" loading="lazy" decoding="async">
+        <img class="poster-logo" src="assets/logo.png?v=20" width="600" height="600" alt="" loading="lazy" decoding="async">
         <div class="poster-cap"><span>Vendita<br>Riparazioni<br>Noleggio</span><small>Viale Europa snc<br>Pozzallo (RG)</small></div>
       </div>
     </div>
@@ -673,43 +673,57 @@
 </section>
 
 <!-- ======================== DOMANDE FREQUENTI ======================== -->
-<!-- Piccolo FAQ in fondo alla pagina, prima del footer. Il testo di domande e risposte deve restare identico a quello del FAQPage nel JSON-LD in <head> -->
+<!-- FAQ a comparsa in fondo alla pagina, prima del footer: il riquadro si apre col mouse sopra il pulsante (o al tocco / con la tastiera, js/main.js).
+     Il testo di domande e risposte deve restare identico a quello del FAQPage nel JSON-LD in <head> -->
 <section class="section section-alt faq-section" id="faq">
   <div class="wrap">
-    <div class="faq-head reveal">
-      <p class="kicker">Domande frequenti</p>
-      <h2 class="faq-title">Quello che ci <em>chiedono di più.</em></h2>
-    </div>
+    <div class="faq-pop">
+      <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel">
+        <span class="faq-q" aria-hidden="true">?</span>
+        <span class="faq-label">Domande frequenti</span>
+        <span class="faq-hint faq-hint-hover">passa il mouse qui</span>
+        <span class="faq-hint faq-hint-touch">tocca per aprire</span>
+      </button>
 
-    <div class="faq reveal">
-      <details class="faq-item">
-        <summary>Dove si trova Non Solo Bici?</summary>
-        <div class="faq-a"><p>Siamo a Pozzallo, in provincia di Ragusa, in Viale Europa snc (97016), vicino a Modica e Ispica.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Quali sono gli orari di apertura e come posso contattarvi?</summary>
-        <div class="faq-a"><p>Siamo aperti dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 15:30 alle 19:30, il sabato dalle 8:30 alle 12:30; la domenica siamo chiusi. Per conferme o disponibilità chiama il <a href="tel:+393318380840">331 838 0840</a> oppure il fisso <a href="tel:+390932797162">0932 797162</a>, o scrivici su WhatsApp al 331 838 0840.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Noleggiate biciclette ed e-bike?</summary>
-        <div class="faq-a"><p>Sì, noleggiamo sia biciclette sia e-bike. Dicci quando ti servono e per quanto tempo: ti rispondiamo con disponibilità e tariffa. Puoi scriverci dal <a href="#noleggio">modulo di noleggio</a> del sito, telefonare o passare in negozio.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Quanto costa noleggiare una bici o una e-bike?</summary>
-        <div class="faq-a"><p>La tariffa dipende dal mezzo e dalla durata, per esempio qualche ora, un giorno o una settimana. La comunichiamo su richiesta insieme alla disponibilità.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Riparate tutti i tipi di bicicletta?</summary>
-        <div class="faq-a"><p>Ci occupiamo di manutenzione e riparazione di biciclette da città, MTB, bici da corsa, BMX e bici per ragazzi.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Fate assistenza per bici elettriche, scooter elettrici e monopattini elettrici?</summary>
-        <div class="faq-a"><p>Sì, offriamo assistenza per bici elettriche, scooter elettrici e monopattini elettrici. Scrivici o chiamaci per un'indicazione, oppure passa in negozio.</p></div>
-      </details>
-      <details class="faq-item">
-        <summary>Vendete biciclette nuove e usate?</summary>
-        <div class="faq-a"><p>Sì: biciclette nuove e usate, e-bike (anche pieghevoli), fat bike, accessori e ricambi. Le disponibilità cambiano spesso, quindi conviene chiedere prima.</p></div>
-      </details>
+      <div class="faq-panel" id="faq-panel" role="region" aria-label="Domande frequenti">
+        <div class="faq-box">
+          <div class="faq-box-head">
+            <h2 class="faq-title">Quello che ci <em>chiedono di più.</em></h2>
+            <button type="button" class="faq-close" aria-label="Chiudi le domande frequenti"><svg class="ico" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+
+          <div class="faq">
+            <details class="faq-item">
+              <summary>Dove si trova Non Solo Bici?</summary>
+              <div class="faq-a"><p>Siamo a Pozzallo, in provincia di Ragusa, in Viale Europa snc (97016), vicino a Modica e Ispica.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Quali sono gli orari di apertura e come posso contattarvi?</summary>
+              <div class="faq-a"><p>Siamo aperti dal lunedì al venerdì dalle 8:30 alle 12:30 e dalle 15:30 alle 19:30, il sabato dalle 8:30 alle 12:30; la domenica siamo chiusi. Per conferme o disponibilità chiama il <a href="tel:+393318380840">331 838 0840</a> oppure il fisso <a href="tel:+390932797162">0932 797162</a>, o scrivici su WhatsApp al 331 838 0840.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Noleggiate biciclette ed e-bike?</summary>
+              <div class="faq-a"><p>Sì, noleggiamo sia biciclette sia e-bike. Dicci quando ti servono e per quanto tempo: ti rispondiamo con disponibilità e tariffa. Puoi scriverci dal <a href="#noleggio">modulo di noleggio</a> del sito, telefonare o passare in negozio.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Quanto costa noleggiare una bici o una e-bike?</summary>
+              <div class="faq-a"><p>La tariffa dipende dal mezzo e dalla durata, per esempio qualche ora, un giorno o una settimana. La comunichiamo su richiesta insieme alla disponibilità.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Riparate tutti i tipi di bicicletta?</summary>
+              <div class="faq-a"><p>Ci occupiamo di manutenzione e riparazione di biciclette da città, MTB, bici da corsa, BMX e bici per ragazzi.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Fate assistenza per bici elettriche, scooter elettrici e monopattini elettrici?</summary>
+              <div class="faq-a"><p>Sì, offriamo assistenza per bici elettriche, scooter elettrici e monopattini elettrici. Scrivici o chiamaci per un'indicazione, oppure passa in negozio.</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>Vendete biciclette nuove e usate?</summary>
+              <div class="faq-a"><p>Sì: biciclette nuove e usate, e-bike (anche pieghevoli), fat bike, accessori e ricambi. Le disponibilità cambiano spesso, quindi conviene chiedere prima.</p></div>
+            </details>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -721,7 +735,7 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <img class="foot-logo" src="assets/logo-192.png?v=16" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
+        <img class="foot-logo" src="assets/logo-192.png?v=20" width="88" height="88" alt="Logo Non Solo Bici" loading="lazy">
         <b>Non Solo Bici</b>
         <!-- DA COMPLETARE: aggiungere ragione sociale completa e Partita IVA se richiesto -->
         <address style="font-style:normal">
@@ -775,6 +789,6 @@
   </div>
 </dialog>
 
-<script src="js/main.js?v=16"></script>
+<script src="js/main.js?v=20"></script>
 </body>
 </html>

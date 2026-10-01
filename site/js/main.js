@@ -308,6 +308,58 @@
   updateOpenNow();
   setInterval(updateOpenNow, 60000);
 
+  // --- FAQ a comparsa ---------------------------------------------------------
+  // Col mouse si apre da solo (solo CSS, :hover). Qui: apertura al tocco/clic e da tastiera, chiusura con Esc,
+  // clic fuori o su un link, e il link "Domande frequenti" del footer (#faq) che scorre fin lì e lo apre.
+  var faqPop = $('.faq-pop');
+  if (faqPop) {
+    var faqBtn = $('.faq-trigger', faqPop);
+    var setFaq = function (open) {
+      faqPop.classList.toggle('open', open);
+      faqBtn.setAttribute('aria-expanded', String(open));
+    };
+    // Su schermo largo il riquadro si apre sopra il pulsante: se lassù non c'è abbastanza posto lo apre sotto (sul footer)
+    // e in ogni caso ne limita l'altezza allo spazio libero (il contenuto scorre dentro il riquadro).
+    var faqSheet = window.matchMedia('(hover: none), (max-width: 759px)');
+    var faqBox = $('.faq-box', faqPop);
+    var placeFaq = function () {
+      if (faqSheet.matches) { faqPop.classList.remove('down'); faqBox.style.removeProperty('--faq-max'); return; }
+      var header = $('.site-header');
+      var r = faqBtn.getBoundingClientRect();
+      var up = r.top - (header ? header.offsetHeight : 0) - 18;
+      var down = Math.min(window.innerHeight - r.bottom, document.documentElement.scrollHeight - window.pageYOffset - r.bottom) - 24;
+      var below = up < 300 && down > up;
+      faqPop.classList.toggle('down', below);
+      faqBox.style.setProperty('--faq-max', Math.max(180, Math.min(560, below ? down : up)) + 'px');
+    };
+    var faqQueued = false;
+    var queueFaq = function () {
+      if (faqQueued) return;
+      faqQueued = true;
+      window.requestAnimationFrame(function () { faqQueued = false; placeFaq(); });
+    };
+    ['pointerenter', 'focusin'].forEach(function (t) { faqPop.addEventListener(t, queueFaq); });
+    window.addEventListener('scroll', queueFaq, { passive: true });
+    window.addEventListener('resize', queueFaq);
+    placeFaq();
+
+    faqBtn.addEventListener('click', function () { placeFaq(); setFaq(!faqPop.classList.contains('open')); });
+    $('.faq-close', faqPop).addEventListener('click', function () { setFaq(false); faqBtn.blur(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && faqPop.classList.contains('open')) { setFaq(false); faqBtn.focus(); }
+    });
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a');
+      if (link && link.getAttribute('href') === '#faq') {
+        e.preventDefault();
+        $('#faq').scrollIntoView({ block: 'end' });
+        setFaq(true);
+      } else if (!faqPop.contains(e.target) || (link && faqPop.contains(link))) {
+        setFaq(false);
+      }
+    });
+  }
+
   // --- Comparsa allo scroll -------------------------------------------------
   var items = $$('.reveal');
   if ('IntersectionObserver' in window) {
