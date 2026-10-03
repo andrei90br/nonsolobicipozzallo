@@ -109,7 +109,7 @@ serve.ps1           mini server locale
 | Cosa | Dove | Note |
 |---|---|---|
 | **Orari di apertura** (già inseriti) | Contatti, FAQ, JSON-LD, `llms.txt`, `OPENING` in `js/main.js` | Presi dalla scheda Google il 2 ott 2026 (lun–ven 8:30–12:30 e 15:30–19:30, sab 8:30–12:30, dom chiuso). Se cambiano vanno aggiornati in tutti questi punti; nei festivi possono variare. |
-| **Partita IVA / ragione sociale** | `index.html`, footer | Obbligatoria per un'attività commerciale in Italia. |
+| **Partita IVA** (già inserita) | footer, `privacy.html`, JSON-LD (`vatID`), `llms.txt` | 01581990882, inserita il 3 ott 2026. Se cambia va aggiornata in tutti questi punti. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
 | **Altre foto** (officina, riparazioni, noleggio, accessori) | galleria in Vendita, Riparazioni, Noleggio | Ora ci sono bici, e-bike e monopattini (dalla scheda Google). Mancano foto dell'officina, del noleggio e degli accessori. |
 | **Se cambia il dominio** | `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` | Gli URL assoluti (`canonical`, `og:url`, `og:image`, JSON-LD) usano `https://nonsolobicipozzallo.it/`. |
