@@ -871,3 +871,23 @@ a.stat { text-decoration: none; color: inherit; display: block; }
 /* ---------- Avviso stagione del noleggio (aprile – ottobre) ---------- */
 .season { display: flex; align-items: center; gap: 10px; margin: 16px 0 0; padding: 10px 14px; border-radius: 12px; background: #fff; border: 1.5px solid var(--red); color: var(--ink); font-weight: 600; font-size: .98rem; line-height: 1.3; }
 .season .ico { flex: none; color: var(--red); }
+
+/* ---------- Periodo del noleggio (Aprile – Ottobre): etichetta ben visibile ---------- */
+.apr-ott { display: inline-block; vertical-align: .1em; margin-left: .6em; padding: .24em .7em .16em; border-radius: 999px; background: var(--red); color: #fff; font-family: var(--display); font-style: normal; font-variation-settings: "wdth" 85; font-weight: 700; font-size: .72em; letter-spacing: .09em; text-transform: uppercase; line-height: 1.2; white-space: nowrap; box-shadow: 0 0 0 2px rgba(255, 255, 255, .85); }
+.ticker .apr-ott { margin-left: -14px; background: #fff; color: var(--red); box-shadow: none; font-size: .66em; padding: .26em .75em .18em; }
+.hero-tags .apr-ott { margin-left: .5em; font-size: .78rem; }
+.stat .apr-ott { display: table; margin: 8px auto 0; font-size: .82rem; }
+.foot .apr-ott { margin-left: .5em; font-size: .78rem; }
+.tab { position: relative; }
+.tab .apr-ott { position: absolute; top: -12px; right: 4px; margin: 0; font-size: .72rem; box-shadow: 0 0 0 2px #fff; }
+.poster-cap .apr-ott { margin: 0 0 0 .5em; font-size: .56em; vertical-align: .18em; }
+.svc .apr-ott { margin-left: .5em; font-size: .52em; box-shadow: none; }
+.nav .apr-ott { margin-left: .5em; font-size: .75rem; box-shadow: none; }
+.nav.open .apr-ott { font-size: .95rem; }
+.hero-lead .apr-ott { margin: 0 .15em 0 .5em; font-size: .78em; }
+
+/* avviso grande nella scheda Noleggio: carattere condensato in maiuscolo, "da aprile a ottobre" in rosso */
+.season { gap: 14px; padding: 14px 18px; border-width: 2px; font-family: var(--display); font-variation-settings: "wdth" 85; font-weight: 700; font-size: 1.45rem; letter-spacing: .04em; text-transform: uppercase; line-height: 1.1; }
+.season .ico { width: 1.6em; height: 1.6em; }
+.season em { font-style: normal; color: var(--red); }
+@media (max-width: 599px) { .season { padding: 12px 14px; gap: 12px; font-size: 1.25rem; } }
