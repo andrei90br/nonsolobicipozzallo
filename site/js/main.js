@@ -321,7 +321,11 @@
   if (lb && photoItems.length) {
     var lbImg = $('#lb-img'), lbCap = $('#lb-cap'), lbCount = $('#lb-count'), lbWa = $('#lb-wa');
     var shown = [], pos = 0;
-    var full = function (i) { return shown[i].getAttribute('data-full'); };
+    // foto grande in WebP se il browser ha scelto il WebP anche per la miniatura (data-full resta il JPEG di riserva)
+    var full = function (i) {
+      var src = shown[i].getAttribute('data-full'), thumb = $('img', shown[i]);
+      return /\.webp(\?|$)/.test(thumb.currentSrc || '') ? src.replace(/\.jpg$/, '.webp') : src;
+    };
     var preload = function (i) { if (shown[i]) { var im = new Image(); im.src = full(i); } };
     var render = function () {
       var btn = shown[pos], thumb = $('img', btn), src = full(pos);

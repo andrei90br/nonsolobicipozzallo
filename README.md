@@ -55,8 +55,19 @@ nome della foto). Toccando le card di Vendita ("Vedi le foto") si va alla galler
 
 Le foto sono quelle caricate sulla **scheda Google** del negozio (12 scelte, ottimizzate, senza dati di posizione).
 Per aggiungerne una: carica in `site/assets/gallery/` due misure (`nome-640.jpg` per la miniatura, lato lungo ~1400 px
-`nome-1400.jpg` per l'ingrandimento), copia un `<li class="photo-item" data-cat="…">` in `site/index.html` (categorie:
-`bici`, `ebike`, `monopattini`) e aggiungi la foto a `site/sitemap.xml`. Nelle foto non devono comparire scritte con servizi
+`nome-1400.jpg` per l'ingrandimento) **e la loro versione WebP** (stesso nome con `.webp`, vedi sotto), copia un
+`<li class="photo-item" data-cat="…">` in `site/index.html` (categorie: `bici`, `ebike`, `monopattini`) e aggiungi la foto
+a `site/sitemap.xml` (lì restano i JPEG).
+
+**Foto in WebP:** ogni foto ha accanto la versione `.webp` (circa un terzo più leggera); la pagina la usa con `<picture>` e tiene il
+JPEG come riserva per i browser vecchi. La foto grande del visualizzatore è in WebP se il browser ha scelto il WebP per la miniatura.
+Per creare i WebP serve Python con Pillow (`py -m pip install --user pillow`), poi dalla cartella `site/assets`:
+
+```powershell
+py -c "from PIL import Image; import glob; [Image.open(f).convert('RGB').save(f[:-4] + '.webp', 'WEBP', quality=75, method=6) for f in glob.glob('gallery/*.jpg')]"
+```
+
+(qualità 75 per la galleria, 80 per `hero`, 86 per `logo-512`: a occhio identiche al JPEG). `og.jpg` resta JPEG per le anteprime social. Nelle foto non devono comparire scritte con servizi
 non offerti (nella foto delle e-bike pieghevoli lo striscione con "vendita bici e auto" è stato tagliato).
 
 ## Ottimizzazione per smartphone
@@ -70,7 +81,7 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 - **Pagina più corta:** card compatte (icona a sinistra) per servizi, vendita e noleggio.
 - **WhatsApp:** dai browser interni di Facebook/Instagram, se la nuova scheda è bloccata, si apre nella stessa scheda.
 - **Testo ingrandito:** fino al 200% (impostazioni di accessibilità del telefono) la pagina non scorre di lato e il menu resta raggiungibile.
-- **Foto:** l'hero ha una versione da 800 px per i telefoni (`hero-800.jpg`); per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
+- **Foto:** WebP con JPEG di riserva; l'hero ha una versione da 800 px per i telefoni (`hero-800`). Per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
 
 ## Moduli, tastiera e ripieghi
 
@@ -117,11 +128,11 @@ site/
   css/style.css     stile (palette rosso/nero/carta dal logo)
   js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
   assets/logo.png          logo ufficiale (600×600, sfondo bianco): dati per Google (JSON-LD)
-  assets/logo-512.jpg      stesso logo più leggero, mostrato nel riquadro di "Chi siamo"
+  assets/logo-512.jpg/.webp  stesso logo più leggero, mostrato nel riquadro di "Chi siamo"
   assets/logo-192.png      logo piccolo: testata e footer; usato anche come icona della scheda (192×192)
   assets/favicon-32.png  assets/apple-touch-icon.png    icone della scheda del browser e per iPhone
-  assets/gallery/   12 foto della galleria, ciascuna in due misure (-640 miniatura, -1400 ingrandimento)
-  assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720); hero-800.jpg = versione per telefoni
+  assets/gallery/   12 foto della galleria, ciascuna in due misure (-640 miniatura, -1400 ingrandimento), in JPEG e WebP
+  assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720); hero-800 = versione per telefoni; entrambe anche in .webp
   assets/og.jpg     stessa foto ritagliata 1200×630 per le anteprime social (WhatsApp, Facebook)
 serve.ps1           mini server locale
 DESIGN.md           regole visive del sito
@@ -138,7 +149,7 @@ DESIGN.md           regole visive del sito
 | **Altre foto** (officina, riparazioni, noleggio, accessori) | galleria in Vendita, Riparazioni, Noleggio | Ora ci sono bici, e-bike e monopattini (dalla scheda Google). Mancano foto dell'officina, del noleggio e degli accessori. |
 | **Se cambia il dominio** | `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` | Gli URL assoluti (`canonical`, `og:url`, `og:image`, JSON-LD) usano `https://nonsolobicipozzallo.it/`. |
 | **Privacy** | `privacy.html` | Completata il 20 ott 2026 (hosting GitHub, basi giuridiche, tempi di conservazione, diritti; contatto per telefono/WhatsApp/posta perché non c'è un'email). Va comunque **fatta rivedere da un consulente**. |
-| **Foto in WebP** (facoltativo) | `assets/`, `index.html` | Le foto sono JPEG: in WebP peserebbero circa un terzo in meno. Serve un convertitore (es. Pillow per Python o `cwebp`), oggi non installato. |
+| **Foto in WebP** (fatto, 20 ott 2026) | `assets/`, `index.html` | Galleria 3,9 → 2,7 MB, hero −39%, logo −50%. Le nuove foto vanno aggiunte anche in WebP (vedi "Galleria foto"). |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
 
 ## Recensioni Google

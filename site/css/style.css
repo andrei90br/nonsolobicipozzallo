@@ -61,6 +61,8 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { max-width: 100%; }
+picture { display: contents; }   /* <picture> (WebP + JPEG di riserva) non crea un riquadro: lo stile resta sull'<img> */
+picture > source { display: none; }   /* altrimenti diventa un elemento vuoto di griglie e flex (es. il riquadro col logo) */
 a { color: inherit; }
 h1, h2, h3, h4 { margin: 0; font-family: var(--display); font-weight: 700; text-transform: uppercase; line-height: .95; letter-spacing: .005em; font-variation-settings: "wdth" 78; overflow-wrap: break-word; }
 p { margin: 0 0 1em; }
