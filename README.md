@@ -2,6 +2,7 @@
 
 Sito statico (HTML + CSS + JS, nessuna dipendenza, nessun font o script di terze parti) per
 **Non Solo Bici di Giudice Michele** — Viale Europa snc, 97016 Pozzallo (RG).
+Regole visive (colori, tipografia, componenti, breakpoint): [DESIGN.md](DESIGN.md).
 
 Serve come vetrina pubblicitaria e come punto di contatto per **vendita**, **riparazioni** e **noleggio** (bici ed e-bike).
 
@@ -21,14 +22,19 @@ Poi apri <http://localhost:5174/>. (In Claude Code è già configurato come `non
 `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` e un `CNAME` `www` verso `andrei90br.github.io`.
 I record `MX`/`mx` (posta Aruba) non vanno toccati. Il dominio personalizzato è impostato in *Settings → Pages* del repository.
 
-Il deploy è automatico con GitHub Pages: ogni push su `sito-nuovo` o `main` esegue il workflow
+Il deploy è automatico con GitHub Pages: ogni push su **`main`** (il branch predefinito, l'unico da cui si pubblica) esegue il workflow
 [`pages.yml`](.github/workflows/pages.yml), che pubblica la cartella `site/` (nessun build). Si può lanciare anche a mano
-da *Actions → Deploy su GitHub Pages → Run workflow*. Le regole dell'ambiente `github-pages` consentono solo i branch
-`main` e `sito-nuovo`: per pubblicare da un altro branch va aggiunto in *Settings → Environments → github-pages*.
+da *Actions → Deploy su GitHub Pages → Run workflow*. Fino al 20 ott 2026 si lavorava su `sito-nuovo`: ora `main` contiene
+lo stesso sito e `sito-nuovo` non pubblica più nulla. Per ripristinare il sito basta `git clone` del repository.
 
 **Cache:** GitHub Pages fa tenere i file in cache al browser per 10 minuti. Per questo gli indirizzi di CSS, JS e foto
-in `index.html` e `privacy.html` hanno un numero di versione (`style.css?v=4`): quando modifichi uno di questi file,
-aumenta il numero (`?v=5`…) in tutte le pagine, così pagina e stile arrivano sempre insieme.
+in `index.html` e `privacy.html` hanno un numero di versione (`style.css?v=26`): quando modifichi uno di questi file,
+aumenta il numero in tutte e due le pagine, così pagina e stile arrivano sempre insieme.
+
+**Sicurezza:** GitHub Pages non permette header HTTP personalizzati, quindi la *Content-Security-Policy* è un `<meta>`
+in `index.html`, `privacy.html` e `404.html` (solo file del sito, mappa OpenStreetMap nell'iframe, nessun invio di moduli).
+In `index.html` lo script in linea che mette la classe `js` è autorizzato con il suo hash `sha256`: se lo modifichi, ricalcolalo
+(`printf "%s" "<testo dello script>" | openssl dgst -sha256 -binary | openssl base64`) o la pagina non lo eseguirà.
 
 In alternativa a GitHub Pages basta caricare **il contenuto di `site/`** su qualsiasi hosting statico
 (Netlify, Cloudflare Pages, hosting tradizionale via FTP…).
@@ -63,14 +69,28 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 - **Tocco:** tutti i link e i pulsanti sono alti almeno 44 px; le card di Vendita sono tappabili per intero; gli effetti hover sono attivi solo con il mouse.
 - **Pagina più corta:** card compatte (icona a sinistra) per servizi, vendita e noleggio.
 - **WhatsApp:** dai browser interni di Facebook/Instagram, se la nuova scheda è bloccata, si apre nella stessa scheda.
-- Per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
+- **Testo ingrandito:** fino al 200% (impostazioni di accessibilità del telefono) la pagina non scorre di lato e il menu resta raggiungibile.
+- **Foto:** l'hero ha una versione da 800 px per i telefoni (`hero-800.jpg`); per una foto più nitida su schermi grandi serve un originale ad alta risoluzione (ora 1278×720).
+
+## Moduli, tastiera e ripieghi
+
+- **Moduli → WhatsApp:** errori scritti sotto ogni campo e riepilogo vicino al pulsante; il noleggio accetta solo date da oggi in poi
+  e **solo da aprile a ottobre** (da novembre a marzo la prima data selezionabile è il 1° aprile), quantità da 1 a 20 (`RENT_MONTHS`, `RENT_MAX_QTY` in `js/main.js`).
+  Dopo l'apertura di WhatsApp compare la conferma "premi Invia per mandarcelo".
+- **Tastiera:** menu con focus sulla prima voce e resto della pagina bloccato (Esc chiude), schede con le frecce, FAQ che si apre col Tab
+  e si chiude con Esc/X, galleria con frecce ed Esc; i link interni (Riparazioni, Noleggio, "Vedi le foto", FAQ) portano lì anche il focus.
+- **Se `main.js` non parte** (classe `js-ready` assente): i blocchi a comparsa si mostrano comunque, le due schede sono una sotto l'altra,
+  la FAQ è un elenco normale, i pulsanti Chiama/WhatsApp/Indicazioni restano visibili e i pulsanti dei moduli restano disattivati
+  (nessun dato finisce nell'indirizzo della pagina). Senza JavaScript i moduli sono sostituiti da un avviso con telefono e WhatsApp.
 
 ## SEO locale e GEO (ricerca con assistenti AI)
 
 **Nel sito** (già fatto):
 - **Titoli e testi con parole chiave locali:** H1 "Negozio di bici a Pozzallo: Non solo bici.", etichette di sezione tipo "Noleggio bici ed e-bike a Pozzallo", meta description, indirizzo canonico `https://nonsolobicipozzallo.it/`.
 - **Dati strutturati** (JSON-LD in `<head>`): `BicycleStore` con indirizzo, coordinate, telefoni, profili social, catalogo servizi e prodotti, più `WebSite`, `WebPage`, `ImageObject` e `FAQPage`. Contengono gli orari di apertura (dalla scheda Google, `openingHoursSpecification`) ma non i prezzi, che non sono noti.
-- **FAQ a comparsa "Domande frequenti"** (`#faq`, in fondo alla pagina prima del footer: un pulsante che, col mouse sopra, mostra il riquadro con le domande; su telefono si apre al tocco come foglio sopra la barra azioni; Esc, clic fuori o X lo chiudono; il link "Domande frequenti" del footer lo apre): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
+- **FAQ a comparsa "Domande frequenti"** (`#faq`, in fondo alla pagina prima del footer: un pulsante che, col mouse sopra o col Tab, mostra il riquadro con le domande; su telefono si apre al tocco come foglio sopra la barra azioni; Esc, clic fuori o X lo chiudono; il link "Domande frequenti" del footer lo apre): il testo deve restare identico a quello del `FAQPage` nel JSON-LD.
+- **Orari:** se cambiano, vanno aggiornati in Contatti, FAQ (HTML e JSON-LD), `openingHoursSpecification`, `llms.txt` e `OPENING` in `js/main.js`.
+- **Prezzi:** il JSON-LD non ha `priceRange` perché i prezzi non sono pubblicati ("su richiesta").
 - **"Chi siamo"** apre con una frase-definizione (chi è, dove, cosa fa): è quella che motori di ricerca e assistenti AI tendono a citare.
 - **Posizione:** tag `geo.*`, `<address>` semantico, telefono e indirizzo uguali ovunque (nome, indirizzo e telefono sempre identici).
 - **File per crawler e AI:** `robots.txt` (tutto consentito), `sitemap.xml`, `llms.txt` (scheda riassuntiva in italiano e inglese), pagina `404.html`.
@@ -90,31 +110,35 @@ Il sito è pensato soprattutto per l'uso da telefono (regole in fondo a `site/cs
 ```
 site/
   index.html        pagina unica: hero, negozio-officina-noleggio (servizi + vendita + galleria in un’unica sezione), officina e noleggio (due schede), chi siamo + recensioni (un’unica sezione scura), contatti, FAQ a comparsa in fondo
-  privacy.html      informativa privacy (bozza)
+  privacy.html      informativa privacy (da far rivedere a un consulente)
+  favicon.ico       icona per i programmi che la cercano alla radice del sito
   404.html          pagina "non trovata" autonoma
   robots.txt  sitemap.xml  llms.txt   file per motori di ricerca e assistenti AI
   css/style.css     stile (palette rosso/nero/carta dal logo)
   js/main.js        menu mobile, moduli → WhatsApp, mappa su richiesta, animazioni
-  assets/logo.png          logo ufficiale (600×600, sfondo bianco): sezione "Chi siamo" e dati per Google
+  assets/logo.png          logo ufficiale (600×600, sfondo bianco): dati per Google (JSON-LD)
+  assets/logo-512.jpg      stesso logo più leggero, mostrato nel riquadro di "Chi siamo"
   assets/logo-192.png      logo piccolo: testata e footer; usato anche come icona della scheda (192×192)
   assets/favicon-32.png  assets/apple-touch-icon.png    icone della scheda del browser e per iPhone
   assets/gallery/   12 foto della galleria, ciascuna in due misure (-640 miniatura, -1400 ingrandimento)
-  assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720)
+  assets/hero.jpg   foto della vetrina, sfondo dell'hero (1278×720); hero-800.jpg = versione per telefoni
   assets/og.jpg     stessa foto ritagliata 1200×630 per le anteprime social (WhatsApp, Facebook)
 serve.ps1           mini server locale
+DESIGN.md           regole visive del sito
 ```
 
-## Da completare / verificare (segnalato con commenti `DA COMPLETARE` in `index.html`)
+## Da completare / verificare
 
 | Cosa | Dove | Note |
 |---|---|---|
 | **Orari di apertura** (già inseriti) | Contatti, FAQ, JSON-LD, `llms.txt`, `OPENING` in `js/main.js` | Presi dalla scheda Google il 2 ott 2026 (lun–ven 8:30–12:30 e 15:30–19:30, sab 8:30–12:30, dom chiuso). Se cambiano vanno aggiornati in tutti questi punti; nei festivi possono variare. |
 | **Partita IVA** (già inserita) | footer, `privacy.html`, JSON-LD (`vatID`), `llms.txt` | 01581990882, inserita il 3 ott 2026. Se cambia va aggiornata in tutti questi punti. |
-| **Stagione del noleggio** (già indicata) | etichetta rossa `.apr-ott` ("APR–OTT") accanto a ogni "Noleggio" (menu, hero, striscia, card servizi, scheda, statistiche, riquadro logo, footer); avviso grande `.season` nella scheda Noleggio; testo "da aprile a ottobre" in "Chi siamo", FAQ + JSON-LD (stesso testo), descrizioni meta/og, `OfferCatalog`, `llms.txt` | Il noleggio è disponibile solo da aprile a ottobre (14 ott 2026). Se cambia il periodo vanno aggiornati tutti questi punti. |
+| **Stagione del noleggio** (già indicata; date bloccate nel modulo) | etichetta rossa `.apr-ott` ("APR–OTT") accanto a ogni "Noleggio" (menu, hero, striscia, card servizi, scheda, statistiche, riquadro logo, footer); avviso grande `.season` nella scheda Noleggio; testo "da aprile a ottobre" in "Chi siamo", FAQ + JSON-LD (stesso testo), descrizioni meta/og, `OfferCatalog`, `llms.txt` | Il noleggio è disponibile solo da aprile a ottobre (14 ott 2026). Se cambia il periodo vanno aggiornati tutti questi punti. |
 | **Prezzi / tariffe noleggio** | sezioni Vendita e Noleggio | Ora indicati "su richiesta". |
 | **Altre foto** (officina, riparazioni, noleggio, accessori) | galleria in Vendita, Riparazioni, Noleggio | Ora ci sono bici, e-bike e monopattini (dalla scheda Google). Mancano foto dell'officina, del noleggio e degli accessori. |
 | **Se cambia il dominio** | `index.html`, `robots.txt`, `sitemap.xml`, `llms.txt` | Gli URL assoluti (`canonical`, `og:url`, `og:image`, JSON-LD) usano `https://nonsolobicipozzallo.it/`. |
-| **Privacy** | `privacy.html` | È una bozza: da far controllare prima della pubblicazione. |
+| **Privacy** | `privacy.html` | Completata il 20 ott 2026 (hosting GitHub, basi giuridiche, tempi di conservazione, diritti; contatto per telefono/WhatsApp/posta perché non c'è un'email). Va comunque **fatta rivedere da un consulente**. |
+| **Foto in WebP** (facoltativo) | `assets/`, `index.html` | Le foto sono JPEG: in WebP peserebbero circa un terzo in meno. Serve un convertitore (es. Pillow per Python o `cwebp`), oggi non installato. |
 | **Numero WhatsApp** | `site/js/main.js` (`WA_NUMBER`) | Impostato su 331 838 0840 (cellulare dalla pagina Facebook): verifica che sia attivo su WhatsApp. |
 
 ## Recensioni Google

@@ -1,8 +1,9 @@
 name: Deploy su GitHub Pages
 
+# Si pubblica solo da main (il branch predefinito). Si può lanciare anche a mano da Actions → Run workflow.
 on:
   push:
-    branches: [main, sito-nuovo]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,9 +11,10 @@ permissions:
   pages: write
   id-token: write
 
+# Un deploy alla volta; quello in corso non viene interrotto a metà.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -21,11 +23,13 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@v6
       # Sito statico: si pubblica direttamente la cartella site/, senza build.
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

@@ -1,6 +1,7 @@
 # Mini server statico per l'anteprima locale della cartella site/  (uso: serve.ps1 -Port 5174)
 param([int]$Port = 5174)
-$root = Join-Path $PSScriptRoot "site"
+$root = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot "site"))
+$rootPrefix = $root.TrimEnd('\') + '\'   # con il separatore finale: "site-copia\" non passa per "site\"
 $types = @{ ".html"="text/html; charset=utf-8"; ".css"="text/css; charset=utf-8"; ".js"="text/javascript; charset=utf-8"; ".png"="image/png"; ".jpg"="image/jpeg"; ".jpeg"="image/jpeg"; ".svg"="image/svg+xml"; ".webp"="image/webp"; ".ico"="image/x-icon"; ".txt"="text/plain; charset=utf-8"; ".xml"="application/xml; charset=utf-8"; ".webmanifest"="application/manifest+json" }
 $l = New-Object System.Net.HttpListener
 $l.Prefixes.Add("http://localhost:$Port/")
@@ -13,7 +14,7 @@ while ($l.IsListening) {
     $p = Join-Path $root $rel
     if (Test-Path $p -PathType Container) { $p = Join-Path $p "index.html" }
     $full = [IO.Path]::GetFullPath($p)
-    if ($full.StartsWith($root) -and (Test-Path $full -PathType Leaf)) {
+    if ($full.StartsWith($rootPrefix, [StringComparison]::OrdinalIgnoreCase) -and (Test-Path $full -PathType Leaf)) {
       $bytes = [IO.File]::ReadAllBytes($full)
       $ext = [IO.Path]::GetExtension($full).ToLower()
       $c.Response.ContentType = if ($types[$ext]) { $types[$ext] } else { "application/octet-stream" }
